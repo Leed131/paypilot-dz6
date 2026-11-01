@@ -22,5 +22,6 @@ services:
     environment:
       MOCKSERVER_INITIALIZATION_JSON_PATH: /mock/expectations.json
       MOCKSERVER_LOG_LEVEL: WARN
+      MOCKSERVER_MAX_SOCKET_TIMEOUT: "60000"
     volumes:
       - ./mock:/mock:ro
