@@ -53,6 +53,14 @@
     },
     {
       "user": "Please dispute it as unauthorized.",
+      "model": [
+        {
+          "text": "Please confirm: should I check eligibility and, if eligible, open an unauthorized debit dispute for TX-0202, CloudServe Subscription, 89.99 USD on account ACC-1003?"
+        }
+      ]
+    },
+    {
+      "user": "Yes, I confirm. Please check eligibility and, if eligible, open that unauthorized debit dispute for TX-0202 on ACC-1003 for 89.99 USD.",
       "live": true
     }
   ],
@@ -80,5 +88,6 @@
   "dimension": "post-write state",
   "level": [
     1
-  ]
+  ],
+  "fixture_version": "explicit-consent-v3"
 }

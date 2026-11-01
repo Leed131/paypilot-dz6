@@ -172,6 +172,44 @@
     }
   },
   {
+    "id": "s1-step3-reply1",
+    "httpRequest": {
+      "method": "POST",
+      "path": ".*/chat/completions",
+      "body": {
+        "type": "JSON_PATH",
+        "jsonPath": "$.messages[-1:][?(@.role == 'user' && @.content == 'Please dispute it as unauthorized.')]"
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ]
+      },
+      "body": {
+        "id": "s1-step3-reply1",
+        "object": "chat.completion",
+        "model": "anthropic/claude-haiku-5.5",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "Please confirm: should I check eligibility and, if eligible, open an unauthorized debit dispute for TX-0202, CloudServe Subscription, 89.99 USD on account ACC-1003?"
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0
+        }
+      }
+    }
+  },
+  {
     "id": "s1o-step1-reply1",
     "httpRequest": {
       "method": "POST",
