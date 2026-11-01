@@ -66,5 +66,10 @@
       },
       "expected_count": 1
     }
+  ],
+  "dimension": "call parameters",
+  "level": [
+    1,
+    4
   ]
 }

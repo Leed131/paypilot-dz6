@@ -1,0 +1,208 @@
+{
+  "method": "Estimate from recorded usage; no model calls",
+  "pricing_source": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+  "pricing_checked": "2026-11-01",
+  "usd_per_million": {
+    "input": 0.25,
+    "cached_input": 0.025,
+    "output": 2.0
+  },
+  "runs": [
+    {
+      "condition": "baseline",
+      "folder": "reports/s5-20261101T182619/baseline",
+      "request_id": "8bc2e2078d714f44",
+      "usage_input_cached_output": [
+        [
+          1716,
+          0,
+          155
+        ],
+        [
+          1838,
+          1536,
+          785
+        ]
+      ],
+      "estimated_usd": 0.0024229,
+      "same_usage_without_cache_discount_usd": 0.0027685
+    },
+    {
+      "condition": "baseline",
+      "folder": "reports/s5-20261101T182619/baseline-2",
+      "request_id": "313daf1d8867415b",
+      "usage_input_cached_output": [
+        [
+          1716,
+          1536,
+          91
+        ],
+        [
+          1838,
+          1664,
+          639
+        ]
+      ],
+      "estimated_usd": 0.0016285,
+      "same_usage_without_cache_discount_usd": 0.0023485
+    },
+    {
+      "condition": "baseline",
+      "folder": "reports/s5-20261101T182619/baseline-3",
+      "request_id": "8baaccb10229454e",
+      "usage_input_cached_output": [
+        [
+          1716,
+          1536,
+          91
+        ],
+        [
+          1838,
+          1664,
+          563
+        ]
+      ],
+      "estimated_usd": 0.0014765,
+      "same_usage_without_cache_discount_usd": 0.0021965
+    },
+    {
+      "condition": "baseline",
+      "folder": "reports/s5-20261101T182619/baseline-4",
+      "request_id": "8893390a11794d3c",
+      "usage_input_cached_output": [
+        [
+          1716,
+          1536,
+          91
+        ],
+        [
+          1838,
+          1664,
+          592
+        ]
+      ],
+      "estimated_usd": 0.0015345,
+      "same_usage_without_cache_discount_usd": 0.0022545
+    },
+    {
+      "condition": "baseline",
+      "folder": "reports/s5-20261101T182619/baseline-5",
+      "request_id": "58151246a0b542dd",
+      "usage_input_cached_output": [
+        [
+          1716,
+          1536,
+          155
+        ],
+        [
+          1838,
+          1664,
+          766
+        ]
+      ],
+      "estimated_usd": 0.0020105,
+      "same_usage_without_cache_discount_usd": 0.0027305000000000003
+    },
+    {
+      "condition": "defect",
+      "folder": "reports/s5-20261101T182619/defect",
+      "request_id": "68ffedce0b5f4e94",
+      "usage_input_cached_output": [
+        [
+          1729,
+          0,
+          219
+        ],
+        [
+          1851,
+          0,
+          779
+        ]
+      ],
+      "estimated_usd": 0.002891,
+      "same_usage_without_cache_discount_usd": 0.002891
+    },
+    {
+      "condition": "defect",
+      "folder": "reports/s5-20261101T182619/defect-2",
+      "request_id": "5fa9d8c8917a4f35",
+      "usage_input_cached_output": [
+        [
+          1728,
+          0,
+          91
+        ],
+        [
+          1849,
+          0,
+          712
+        ]
+      ],
+      "estimated_usd": 0.00250025,
+      "same_usage_without_cache_discount_usd": 0.00250025
+    },
+    {
+      "condition": "defect",
+      "folder": "reports/s5-20261101T182619/defect-3",
+      "request_id": "35b61c8444d44b43",
+      "usage_input_cached_output": [
+        [
+          1726,
+          0,
+          91
+        ],
+        [
+          1851,
+          0,
+          653
+        ]
+      ],
+      "estimated_usd": 0.00238225,
+      "same_usage_without_cache_discount_usd": 0.00238225
+    },
+    {
+      "condition": "defect",
+      "folder": "reports/s5-20261101T182619/defect-4",
+      "request_id": "f77e4653ce3d44bf",
+      "usage_input_cached_output": [
+        [
+          1730,
+          0,
+          91
+        ],
+        [
+          1851,
+          0,
+          69
+        ]
+      ],
+      "estimated_usd": 0.0012152500000000002,
+      "same_usage_without_cache_discount_usd": 0.0012152500000000002
+    },
+    {
+      "condition": "defect",
+      "folder": "reports/s5-20261101T182619/defect-5",
+      "request_id": "d21b4855b5084a2e",
+      "usage_input_cached_output": [
+        [
+          1727,
+          0,
+          155
+        ],
+        [
+          1848,
+          0,
+          86
+        ]
+      ],
+      "estimated_usd": 0.00137575,
+      "same_usage_without_cache_discount_usd": 0.00137575
+    }
+  ],
+  "mean_estimated_usd": {
+    "baseline": 0.0018145800000000003,
+    "defect": 0.0020729
+  },
+  "baseline_same_usage_without_cache_usd": 0.0024597,
+  "defect_to_baseline_ratio": 1.142358011220227
+}

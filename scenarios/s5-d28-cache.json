@@ -71,5 +71,9 @@
       "from_call": 1,
       "min": 1000
     }
+  ],
+  "dimension": "prompt cache",
+  "level": [
+    2
   ]
 }
