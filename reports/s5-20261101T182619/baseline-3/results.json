@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": true,
+      "detail": "cache_read per call from #2: [1664]"
+     }
+    ],
+    "answer": "What I did\n- I checked the transfer limits on file for your account.\n\nWhat I found (as of 2026-09-15)\n- Tier: tier3\n- Daily limit (EUR-equivalent): 100,000 EUR\n  - Daily spent (EUR-equivalent): 4,914 EUR\n  - Daily remaining (EUR-equivalent): 95,086 EUR\n- Monthly limit (EUR-equivalent): 1,000,000 EUR\n  - Monthly spent (EUR-equivalent): 35,334 EUR\n  - Monthly remaining (EUR-equivalent): 964,666 EUR\n\nWhat happens next\n- If you want, I can help initiate a transfer, check how a specific payment would affect your remainder, or start a request to increase limits (this may require escalation). Which would you like?",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     1536,
+     1664
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

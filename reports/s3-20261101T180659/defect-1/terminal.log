@@ -1,0 +1,7 @@
+ Container l07-eval-run-2050077b9bec Creating 
+ Container l07-eval-run-2050077b9bec Created 
+ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S3 · D29: результат перевірки спору незрозумілий агенту
+

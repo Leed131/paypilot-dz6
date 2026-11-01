@@ -1,0 +1,9 @@
+ Container l07-eval-run-aeec3183ff3e Creating 
+ Container l07-eval-run-aeec3183ff3e Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S6 · D11: dispute currency follows the transaction
+S6 baseline run 1 PASS  step 3: 4 model call(s), tools ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [0, 1536, 1664, 1792], cost $None; mock answered 4 of 8 model requests
+    ok  tool_called: create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]
+    ok  state_row: rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]
+   baseline: 1/1 passed

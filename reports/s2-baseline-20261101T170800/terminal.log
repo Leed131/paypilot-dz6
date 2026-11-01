@@ -1,0 +1,10 @@
+ Container l07-eval-run-9b8efcfaad30 Creating 
+ Container l07-eval-run-9b8efcfaad30 Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S2 · Анафора: «the other one» на кроці 3 має стати TX-0202
+S2 baseline run 1 PASS  step 3: 5 model call(s), tools ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [0, 0, 0, 0, 0], cost $None; mock answered 3 of 8 model requests
+    ok  tool_called: create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]
+    ok  tool_not_called: create_dispute{'transaction_id': 'TX-0204'} called 0x
+    ok  state_row: rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]
+   baseline: 1/1 passed

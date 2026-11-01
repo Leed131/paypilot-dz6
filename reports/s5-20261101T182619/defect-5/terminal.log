@@ -1,0 +1,8 @@
+ Container l07-eval-run-9156416a1870 Creating 
+ Container l07-eval-run-9156416a1870 Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S5 · D28: кеш промпту не тримається на кроці 4
+S5 defect   run 1 FAIL  step 4: 2 model call(s), tools ['check_limits'], cache_read [0, 0], cost $None; mock answered 5 of 7 model requests
+    BAD cache_read_min: cache_read per call from #2: [0]
+   defect: 0/1 passed

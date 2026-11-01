@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": true,
+      "detail": "cache_read per call from #2: [1664]"
+     }
+    ],
+    "answer": "I checked your transfer limits (as of 2026-09-15). What I found for your tier (tier3), in EUR equivalent:\n\n- Daily limit: 100,000 EUR  \n  - Spent today: 4,914 EUR  \n  - Remaining today: 95,086 EUR\n\n- Monthly limit: 1,000,000 EUR  \n  - Spent this month: 35,334 EUR  \n  - Remaining this month: 964,666 EUR\n\nWould you like these shown in GBP, or help making a transfer within these limits?",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     1536,
+     1664
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

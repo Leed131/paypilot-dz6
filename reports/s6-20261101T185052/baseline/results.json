@@ -1,0 +1,45 @@
+[
+ {
+  "scenario": "S6",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "I opened an unauthorized-debit dispute for TX-0801 (BookDepot US, 9 Sep 2026) for 120 USD on your behalf. Dispute ID: 1 and status: open.\n\nWhat I did:\n- Checked dispute eligibility for reason \"unauthorized_debit\" — it returned eligible.\n- Created the dispute using the stored transaction amount and currency.\n- Escalated your case to a human agent (queued).\n\nWhat happens next:\n- We’ll investigate and keep the dispute open while we contact the merchant and card networks.\n- A human agent has been queued to review and assist; they will contact you if they need more information.\n- If you need the official statement or further assistance, say which period and the email address registered to your account; I can send the statement to that address.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1536,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ }
+]

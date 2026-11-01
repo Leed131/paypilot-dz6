@@ -1,0 +1,1 @@
+{"session_id":"ae791b88d5e8","request_id":"0a1944d601c24ea4","answer":"You have two accounts: ACC-1002 in EUR and ACC-1003 in USD.","step_number":1,"prompt_version":"base.v1","elapsed_ms":801.8,"usage":{"input_tokens":0,"output_tokens":0,"model":"anthropic/claude-haiku-5.5","cost_usd":0.0}}

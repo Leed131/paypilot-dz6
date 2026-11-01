@@ -1,0 +1,54 @@
+[
+ {
+  "scenario": "S3",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D29"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_result_schema",
+      "ok": false,
+      "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": false,
+      "detail": "create_dispute called 1x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": false,
+      "detail": "5 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human', 'get_account', 'escalate_to_human'], max 2"
+     }
+    ],
+    "answer": "I opened a duplicate-charge dispute for TX-0402 (TechMart Online, 240.00 EUR on 14 Jul 2026). Dispute ID: 1 — status open.\n\nWhat I did:\n- Checked the transaction list for account ACC-1005.\n- Confirmed the duplicate TechMart charges (TX-0402 and TX-0401).\n- Called dispute eligibility and opened the dispute for TX-0402.\n- Escalated to a human agent and queued the escalation.\n\nWhat happens next:\n- The dispute is open; we'll investigate and may contact TechMart or request any additional information from you.\n- A human agent is queued to review and assist further. If we need documents or more details, we'll ask you by the email address on file.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human",
+     "get_account",
+     "escalate_to_human"
+    ],
+    "model_calls": 6,
+    "cache_read": [
+     1408,
+     1536,
+     1536,
+     1664,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 8
+   }
+  ]
+ }
+]

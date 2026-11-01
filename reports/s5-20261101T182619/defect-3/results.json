@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D28"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": false,
+      "detail": "cache_read per call from #2: [0]"
+     }
+    ],
+    "answer": "I checked your current transfer limits (as of 2026-09-15). Here’s what I found for your account/tier:\n\n- Daily limit (EUR): 100,000  \n  - Daily spent (EUR): 4,914  \n  - Daily remaining (EUR): 95,086\n\n- Monthly limit (EUR): 1,000,000  \n  - Monthly spent (EUR): 35,334  \n  - Monthly remaining (EUR): 964,666\n\nThese amounts are shown in EUR equivalent. What would you like to do next — for example, review limits for a specific transfer, or request a limit increase?",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

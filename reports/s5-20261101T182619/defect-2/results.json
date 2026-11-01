@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D28"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": false,
+      "detail": "cache_read per call from #2: [0]"
+     }
+    ],
+    "answer": "I checked your transfer limits for customer CUS-0010 (as of 2026-09-15).\n\nWhat I found:\n- Daily limit: 100,000.00 EUR — spent 4,914.00 EUR — remaining 95,086.00 EUR.\n- Monthly limit: 1,000,000.00 EUR — spent 35,334.00 EUR — remaining 964,666.00 EUR.\n\nThese figures are the EUR-equivalent limits on file for your tier (tier3). What would you like to do next — check a specific transfer against these limits or request a limit increase?",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

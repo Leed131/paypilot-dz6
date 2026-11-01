@@ -1,0 +1,8 @@
+ Container l07-eval-run-a985a298d70f Creating 
+ Container l07-eval-run-a985a298d70f Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S4 · Повтор на кроці 2: той самий спір удруге не дає другого рядка
+S4 baseline run 1 PASS  step 2: 2 model call(s), tools ['check_dispute_eligibility'], cache_read [0, 1280], cost $None; mock answered 3 of 5 model requests
+    ok  state_row: rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]
+   baseline: 1/1 passed

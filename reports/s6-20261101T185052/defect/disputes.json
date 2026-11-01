@@ -1,0 +1,1 @@
+{"table":"disputes","rows":[{"id":1,"transaction_id":"TX-0801","account_id":"ACC-1009","reason_code":"unauthorized_debit","amount":120.0,"currency":"USD","status":"open","created_at":"2026-09-15T10:00:00+00:00"}]}

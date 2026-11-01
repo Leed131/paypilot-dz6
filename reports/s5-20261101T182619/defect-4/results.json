@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D28"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": false,
+      "detail": "cache_read per call from #2: [0]"
+     }
+    ],
+    "answer": "Your tier (tier3) limits as of 2026-09-15 are:\n- Daily limit: 100,000 EUR — remaining 95,086 EUR\n- Monthly limit: 1,000,000 EUR — remaining 964,666 EUR\n\nDo you want these in GBP or a breakdown by account?",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

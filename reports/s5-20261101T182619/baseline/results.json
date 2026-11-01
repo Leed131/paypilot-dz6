@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": true,
+      "detail": "cache_read per call from #2: [1536]"
+     }
+    ],
+    "answer": "What I did\n- I retrieved your current transfer limits (EUR-equivalent) as of 2026-09-15.\n\nWhat I found\n- Daily limit: €100,000.00 — spent €4,914.00 — remaining €95,086.00.\n- Monthly limit: €1,000,000.00 — spent €35,334.00 — remaining €964,666.00.\n\nWhat happens next\n- If you’d like these shown in GBP or want me to check whether a specific payment would fit within your remaining allowance, tell me the amount and target account (ACC-1011 is on file) and I’ll check.",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

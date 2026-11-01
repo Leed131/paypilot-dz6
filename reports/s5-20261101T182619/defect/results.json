@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S5",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D28"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": false,
+      "detail": "cache_read per call from #2: [0]"
+     }
+    ],
+    "answer": "What I did\n- I checked the transfer limits on your customer record (as of 2026-09-15).\n\nWhat I found (EUR equivalent)\n- Daily limit: €100,000  \n  - Daily spent: €4,914  \n  - Daily remaining: €95,086\n- Monthly limit: €1,000,000  \n  - Monthly spent: €35,334  \n  - Monthly remaining: €964,666\n\nWhat happens next\n- If you’d like a per-account breakdown, the equivalent amounts in GBP, or to request a limit increase, tell me which and I’ll take the next step.",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ }
+]

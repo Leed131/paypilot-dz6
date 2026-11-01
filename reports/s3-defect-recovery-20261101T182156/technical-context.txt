@@ -1,0 +1,3 @@
+Previous attempt: reports/s3-20261101T180659/defect-1
+Technical error: HTTP 502 on provider request, surfaced as stand HTTP 500.
+Previous incomplete attempt excluded from completed-run frequency.

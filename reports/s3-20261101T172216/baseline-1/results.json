@@ -1,0 +1,46 @@
+[
+ {
+  "scenario": "S3",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_result_schema",
+      "ok": true,
+      "detail": "result matches the contract"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "1 tool calls ['check_dispute_eligibility'], max 2"
+     }
+    ],
+    "answer": "What I did\n- I checked dispute eligibility for TX-0402 (TechMart Online, 240.00 EUR, dated 14 Jul 2026).\n\nWhat I found\n- Eligibility: not eligible to open a duplicate-charge dispute.\n- Reason: the 60-day dispute window expired on 2026-09-12. The eligibility check shows reason_code and transaction status passed, but the window check failed.\n\nWhat happens next\n- I cannot open a dispute for TX-0402 because the dispute window has closed.\n- If you want, I can:\n  - Escalate this case to a human agent for further review, or\n  - Send an account statement for ACC-1005 (showing TX-0402) to the email address registered on your account to help you when contacting the merchant.\n\nTell me which option you prefer and I will proceed.",
+    "tools": [
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1408
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 4
+   }
+  ]
+ }
+]

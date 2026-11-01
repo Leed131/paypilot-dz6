@@ -1,0 +1,10 @@
+ Container l07-eval-run-51df30273433 Creating 
+ Container l07-eval-run-51df30273433 Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S1 · D12: спір на кроці 3 записано на інший рахунок
+S1 defect   run 1 FAIL  step 3: 4 model call(s), tools ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [0, 0, 0, 0], cost $None; mock answered 4 of 8 model requests
+    ok  tool_called: create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]
+    ok  tool_order: check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']
+    BAD state_row: account_id='ACC-1002', expected 'ACC-1003'
+   defect: 0/1 passed

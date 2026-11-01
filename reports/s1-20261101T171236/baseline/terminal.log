@@ -1,0 +1,10 @@
+ Container l07-eval-run-6509914dcd8b Creating 
+ Container l07-eval-run-6509914dcd8b Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S1 · D12: спір на кроці 3 записано на інший рахунок
+S1 baseline run 1 PASS  step 3: 4 model call(s), tools ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [0, 0, 0, 0], cost $None; mock answered 4 of 8 model requests
+    ok  tool_called: create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]
+    ok  tool_order: check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']
+    ok  state_row: rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]
+   baseline: 1/1 passed

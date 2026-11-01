@@ -1,0 +1,36 @@
+[
+ {
+  "scenario": "S4",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+     }
+    ],
+    "answer": "I did not open a second dispute because one is already open for TX-0401.\n\nWhat I did\n- Re-checked dispute eligibility for TX-0401 (eligible; dispute window until 2026-09-18).\n- Confirmed an existing dispute was previously created: dispute_id 1, status: open.\n\nWhat happens next\n- The dispute remains open under dispute_id 1. I will update you here if the status changes.\n- If you want me to escalate this to a human agent or send any documentation/statement, tell me which and I will do that.",
+    "tools": [
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1280
+    ],
+    "cost_usd": null,
+    "mock_answered": 3,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

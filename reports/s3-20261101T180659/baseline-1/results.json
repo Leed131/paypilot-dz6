@@ -1,0 +1,48 @@
+[
+ {
+  "scenario": "S3",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_result_schema",
+      "ok": true,
+      "detail": "result matches the contract"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "2 tool calls ['get_account', 'check_dispute_eligibility'], max 2"
+     }
+    ],
+    "answer": "What I did\n- I checked dispute eligibility for TX-0402 (duplicate_charge).\n\nWhat I found\n- Eligible: no.\n- Reason: the 60-day dispute window has expired.\n- Transaction date: 2026-07-14; eligibility deadline: 2026-09-12; check run as of: 2026-09-15.\n- Other eligibility checks (status, compliance) passed; only the window failed.\n\nWhat this means\n- I cannot open a duplicate-charge dispute for TX-0402.\n\nNext steps you can take\n- Contact TechMart Online and request a refund. Useful details to include: TX-0402 — 14 Jul 2026 — 240.00 EUR, and TX-0401 — 20 Jul 2026 — 240.00 EUR (both are on your ACC-1005).\n- If you want, I can send an account statement showing those transactions to the email registered on your account. Tell me if you’d like me to send it and I will do so.\n- If you’d like further help (for example, escalate this to a human agent to review options), tell me and I will escalate.",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     1408,
+     1536,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

@@ -1,0 +1,10 @@
+ Container l07-eval-run-280aeb43590d Creating 
+ Container l07-eval-run-280aeb43590d Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S3 · D29: результат перевірки спору незрозумілий агенту
+S3 defect   run 1 FAIL  step 2: 5 model call(s), tools ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [1408, 1536, 1536, 1664, 1664], cost $None; mock answered 2 of 7 model requests
+    BAD tool_result_schema: eligible: expected boolean, got {"ok": true, "r": "N", "c": [3], "w": 60}; checks: expected object, got {"ok": true, "r": "N", "c": [3], "w": 60}
+    BAD tool_call_count: create_dispute called 1x, expected 0
+    BAD max_tool_calls: 4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2
+   defect: 0/1 passed

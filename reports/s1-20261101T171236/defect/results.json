@@ -1,0 +1,50 @@
+[
+ {
+  "scenario": "S1",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D12"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "tool_order",
+      "ok": true,
+      "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+     },
+     {
+      "kind": "state_row",
+      "ok": false,
+      "detail": "account_id='ACC-1002', expected 'ACC-1003'"
+     }
+    ],
+    "answer": "What I did\n- I checked the transactions on your USD account (ACC-1003) and confirmed TX-0202: 89.99 USD to CloudServe Subscription on 8 Sep 2026.\n- I checked dispute eligibility for reason \"unauthorized_debit\" and it is eligible (within the dispute window and status OK).\n- I opened a dispute for TX-0202 for 89.99 USD. Dispute ID: 1, status: open.\n- I escalated this case to a human agent and queued it for review.\n\nWhat happens next\n- We have started the dispute process and the merchant will be contacted. The dispute is open and under review.\n- A human agent will pick up the escalation and follow through. They'll use the registered email on file if they need documents or further confirmation.\n\nIf you have any supporting evidence (e.g., proof you didn't authorize the payment, device logs, correspondence with CloudServe), reply here and I will attach it to the case.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     0,
+     0,
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ }
+]

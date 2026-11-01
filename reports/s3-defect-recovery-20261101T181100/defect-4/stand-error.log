@@ -1,0 +1,160 @@
+  File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/telemetry/_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/main.py", line 140, in chat
+    return loop.run_turn(body.session_id, body.message, customer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/loop.py", line 79, in run_turn
+    return _run_turn(sid, state, user_message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/loop.py", line 117, in _run_turn
+    resp = provider.complete(prompt.stamp(system),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/providers/base.py", line 37, in complete
+    resp = self._inner.complete(system, messages, tools)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/providers/openai_provider.py", line 78, in complete
+    resp.raise_for_status()
+  File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+INFO:     192.168.65.1:28529 - "GET /api/_test/traces?limit=100 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:35390 - "GET /api/_test/state/disputes HTTP/1.1" 200 OK
+INFO:     192.168.65.1:54589 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.65.1:60124 - "GET /api/_test/defects HTTP/1.1" 200 OK
+INFO:     192.168.65.1:37753 - "POST /api/_test/reset HTTP/1.1" 200 OK
+INFO:     192.168.65.1:42047 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:49957 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:22105 - "GET /api/_test/traces/9f24c57f09a74241 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:59180 - "GET /api/_test/traces?limit=100 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:44078 - "GET /api/_test/state/disputes HTTP/1.1" 200 OK
+INFO:     192.168.65.1:32376 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.65.1:48879 - "GET /api/_test/defects HTTP/1.1" 200 OK
+INFO:     192.168.65.1:57717 - "POST /api/_test/reset HTTP/1.1" 200 OK
+INFO:     192.168.65.1:36314 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:42369 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:47582 - "GET /api/_test/traces/dbba1db41e4948e7 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:26714 - "GET /api/_test/traces?limit=100 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:22437 - "GET /api/_test/state/disputes HTTP/1.1" 200 OK
+INFO:     192.168.65.1:25194 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.65.1:56950 - "GET /api/_test/defects HTTP/1.1" 200 OK
+INFO:     192.168.65.1:34139 - "POST /api/_test/reset HTTP/1.1" 200 OK
+INFO:     192.168.65.1:64690 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:63103 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:31065 - "GET /api/_test/traces/dc68e7990fbd419a HTTP/1.1" 200 OK
+INFO:     192.168.65.1:39480 - "GET /api/_test/traces?limit=100 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:64402 - "GET /api/_test/state/disputes HTTP/1.1" 200 OK
+INFO:     192.168.65.1:25663 - "GET /health HTTP/1.1" 200 OK
+INFO:     192.168.65.1:26543 - "GET /api/_test/defects HTTP/1.1" 200 OK
+INFO:     192.168.65.1:24402 - "POST /api/_test/reset HTTP/1.1" 200 OK
+INFO:     192.168.65.1:37954 - "POST /chat HTTP/1.1" 200 OK
+INFO:     192.168.65.1:44843 - "POST /chat HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/applications.py", line 1221, in __call__
+    await self._native_telemetry(
+  File "/usr/local/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 429, in __call__
+    await app(
+  File "/usr/local/lib/python3.12/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py", line 203, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/main.py", line 56, in request_settings
+    return await call_next(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py", line 179, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 676, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 2809, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 1328, in handle
+    await super().handle(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/routing.py", line 282, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/routing.py", line 374, in run_endpoint_function
+    return await run_in_threadpool(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/starlette/concurrency.py", line 34, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fastapi/telemetry/_api.py", line 244, in _run_sync_endpoint
+    return function(**arguments)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/main.py", line 140, in chat
+    return loop.run_turn(body.session_id, body.message, customer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/loop.py", line 79, in run_turn
+    return _run_turn(sid, state, user_message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/loop.py", line 117, in _run_turn
+    resp = provider.complete(prompt.stamp(system),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/providers/base.py", line 37, in complete
+    resp = self._inner.complete(system, messages, tools)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/stand/app/agent/providers/openai_provider.py", line 78, in complete
+    resp.raise_for_status()
+  File "/usr/local/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
+INFO:     192.168.65.1:18688 - "GET /api/_test/traces?limit=100 HTTP/1.1" 200 OK
+INFO:     192.168.65.1:47807 - "GET /api/_test/state/disputes HTTP/1.1" 200 OK

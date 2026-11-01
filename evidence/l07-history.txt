@@ -1,0 +1,5 @@
+baf9595 Record L07 forecast before live experiments
+77614ce README: стенд L07 береться з paypilot-stand-shared (#5) (#6)
+ce025e3 README: як перевірити, що мок завантажив expectations, і як завантажити їх curl'ом (#4)
+8e543ed Ранер: tool_order, tool_sequence, --gate і runs сценарію; gate/runs у S1–S5 (#3)
+64c352e Baseline сценаріїв явно вимикає дефекти з DEFECTS у .env стенду (#2)
