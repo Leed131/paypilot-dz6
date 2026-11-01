@@ -201,10 +201,21 @@ def main():
         scenarios = [s for s in scenarios if s.get("gate") == args.gate]
         if not scenarios:
             raise SystemExit(f"no scenarios with gate {args.gate}")
+    results = []
+
+    def save_completed():
+        if args.json:
+            target = Path(args.json)
+            temporary = target.with_name(target.name + ".tmp")
+            temporary.write_text(
+                json.dumps(results, ensure_ascii=False, indent=1),
+                encoding="utf-8",
+            )
+            temporary.replace(target)
+
     try:
         health = doctor(scenarios)
         print(f"stand {STAND}: provider {health.get('provider')}, mock {MOCK}")
-        results = []
         for scenario in scenarios:
             print(f"\n== {scenario['id']} · {scenario['title']}")
             for condition, settings in scenario["conditions"].items():
@@ -215,7 +226,9 @@ def main():
                 print(f"   {condition}: {sum(r['passed'] for r in rows)}/{len(rows)} passed")
                 results.append({"scenario": scenario["id"], "condition": condition,
                                 "settings": settings, "runs": rows})
+                save_completed()
     except RunError as e:
+        save_completed()
         raise SystemExit(f"ERROR: {e}")
     if args.json:
         Path(args.json).write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
