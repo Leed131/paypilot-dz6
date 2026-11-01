@@ -1,0 +1,50 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D13"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": false,
+      "detail": "get_transactions should not be called"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- Your account and balance (ACC-1011, GBP balance £61,200).\n- Recent outgoing transactions (most recent: £4,200 out on 2026-09-15 — shows you regularly send similar amounts).\n- FX quote for EUR → GBP for €4,500.\n- Your tier limits (daily and monthly usage).\n\nWhat I found\n- Tier limits: daily_remaining = €95,086 — a €4,500 transfer is within your tier limits.\n- Balance: £61,200 — sufficient to cover the converted amount.\n- FX quote (4500 EUR → GBP) — components:\n  - mid rate: 0.854701\n  - spread: 0.5%\n  - gross (4500 × mid): £3,846.153846\n  - spread amount (0.5% of gross): £19.230769\n  - final amount to be debited: £3,826.923077\n- Allowance: reported allowance_total €5,000 but allowance_used_before €15,000, so the free allowance is not applied for this quote.\n\nConclusion / next step\n- Based on your balance and tier limits, a €4,500 transfer is allowed and your account has sufficient funds to cover it today.\n- If you want me to initiate the transfer, confirm the beneficiary details and the transfer type (SEPA/other) and I will proceed.",
+    "tools": [
+     "get_account",
+     "get_transactions",
+     "quote_fx",
+     "check_limits"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1152,
+     1152
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 3
+   }
+  ]
+ }
+]

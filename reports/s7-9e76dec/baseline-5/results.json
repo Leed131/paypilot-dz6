@@ -1,0 +1,50 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- I pulled your account (ACC-1011, GBP) and current limits.\n- I requested a live EUR→GBP quote for a €4,500 transfer.\n\nWhat I found\n- Account balance: 61,200.00 GBP (ACC-1011).\n- Daily transfer remainder (EUR equivalent): 95,086.00 EUR — the €4,500 is within your daily and monthly limits.\n- FX quote (full components):\n  - Mid rate: 0.854701\n  - Tier spread: 0.5%\n  - Allowance on file: 5,000 EUR (not applied for this quote)\n  - Gross (4,500 × mid rate): 3,846.153846 GBP\n  - Spread amount (0.5%): 19.230769 GBP\n  - Final amount to be received in GBP: 3,826.923077 GBP (≈ 3,826.92 GBP)\n\nConclusion\n- Yes — based on your limits and available balance, a €4,500 transfer can go through today if sent from ACC-1011 (GBP) and converted at the quoted rate.\n\nWhat happens next / do you want me to do this?\n- If you want to proceed, confirm the source account (ACC-1011) and the recipient details and I will start the transfer for you. If you meant a different account or currency, tell me which and I’ll re-check.",
+    "tools": [
+     "get_account",
+     "check_limits",
+     "quote_fx"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1280,
+     1280,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 4
+   }
+  ]
+ }
+]

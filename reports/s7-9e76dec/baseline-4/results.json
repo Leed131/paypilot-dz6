@@ -1,0 +1,50 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- Your account (ACC-1011, currency GBP, balance 61,200.00 GBP).\n- Your transfer limits (daily_remaining_eur = 95,086.00 EUR).\n- A full EUR→GBP FX quote for 4,500 EUR.\n\nWhat I found\n- The 4,500 EUR amount is within your daily and monthly remaining limits (daily_remaining_eur 95,086.00 EUR).\n- Your GBP balance (61,200.00 GBP) is sufficient to cover the converted amount.\n- FX quote (EUR → GBP) for 4,500 EUR:\n  - Mid rate: 0.854701\n  - Tier spread: 0.5%\n  - Allowance: total 5,000 EUR (already used; allowance_applied = false)\n  - Gross (mid-rate) GBP: 3,846.153846\n  - Spread amount: 19.230769 GBP\n  - Final credited/debited GBP: 3,826.923077 GBP\n\nBottom line\n- Yes — based on your limits and balance, a 4,500 EUR transfer can be processed today.\n\nWhat happens next / do you want me to do this?\n- If you want me to initiate the outgoing transfer, confirm which account to debit (ACC-1011 is the only account on file) and provide the recipient details. I will not start the transfer until you confirm.",
+    "tools": [
+     "get_account",
+     "check_limits",
+     "quote_fx"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     1152,
+     1152,
+     1280,
+     1408
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 4
+   }
+  ]
+ }
+]

@@ -1,0 +1,48 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- I pulled your account details and current transfer limits.\n\nWhat I found\n- Account: ACC-1011 (GBP), balance: 61,200.00 GBP.\n- Limits (as of 2026-09-15): daily remaining 95,086.00 EUR, monthly remaining 964,666.00 EUR.\n\nWhat that means\n- A 4,500 EUR transfer is within both your daily and monthly remaining limits, so from a limits perspective it can be sent today.\n\nWhat could still affect same‑day settlement\n- If the payment is sent from your GBP account to an EUR beneficiary, it requires an FX conversion; I don’t yet have a quote and cannot confirm whether your GBP balance covers the converted amount without one.\n- The payment rail/cutoff time and the beneficiary bank’s processing also affect whether funds settle the same day.\n\nNext steps\n- I can get an FX quote now (shows rate, spread and final GBP amount) and confirm if your balance covers it — would you like me to do that and proceed from ACC-1011?",
+    "tools": [
+     "get_account",
+     "check_limits"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1280,
+     1280
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 3
+   }
+  ]
+ }
+]

@@ -1,0 +1,49 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D13"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": false,
+      "detail": "check_limits not called; get_transactions should not be called"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- Retrieved your account and recent transactions.\n- Requested a live FX quote for a €4,500 outbound transfer to your GBP account.\n\nWhat I found\n- Account: ACC-1011 (GBP), balance: 61,200.00 GBP.\n- Recent outbound activity: 4,200.00 GBP (2026-09-15) and 26,000.00 GBP (2026-09-02).\n- FX quote for €4,500 → GBP (your tier: tier3):\n  - Mid rate: 0.854701\n  - Tier spread: 0.50%\n  - Allowance on file: 5,000 EUR (already exceeded; allowance_applied: false)\n  - Gross (mid-rate) amount: 3,846.15 GBP\n  - Spread amount (fee): 19.23 GBP\n  - Final amount to debit/receive: 3,826.92 GBP\n\nWhat this means\n- You have sufficient available GBP balance (61,200.00 GBP) to cover the ~3,826.92 GBP conversion result, so there are no balance constraints preventing the transfer.\n- Based on your recent transaction history (you regularly send amounts larger than this), there is no obvious behavioural reason it would be blocked.\n\nNext steps\n- If you want me to send the €4,500 now, tell me and provide the beneficiary details (or confirm the payment you mean) and I will initiate it.\n- If you were asking about settlement timing (whether it will settle today), tell me the destination (SEPA/UK/other) or confirm you’d like me to initiate and I’ll start the payment and report the expected processing window.",
+    "tools": [
+     "get_account",
+     "get_transactions",
+     "quote_fx"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1152,
+     1152
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 3
+   }
+  ]
+ }
+]

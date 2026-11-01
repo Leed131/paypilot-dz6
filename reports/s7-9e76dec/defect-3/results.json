@@ -1,0 +1,48 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D13"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": false,
+      "detail": "check_limits not called; get_transactions should not be called"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "I checked your account and recent activity to start.\n\nWhat I did\n- Looked up your account (ACC-1011) and recent transactions.\n\nWhat I found\n- Your GBP account balance is £61,200.00.\n- Recent outgoing payments of similar or larger size (one for £4,200 settled on 2026-09-15; one for £26,000 settled on 2026-09-02), so you have sufficient funds to cover a €4,500 payment.\n\nWhat happens next / what I need from you\n- I can’t confirm “will go through today” without two details: (1) Is the payment coming from your GBP account (ACC-1011)? and (2) what rail/transfer type is it (SEPA to an EU IBAN, or an international/SWIFT transfer)?\n- If it’s a SEPA payment to an EU IBAN and you send before our SEPA cut-off, it’s usually same‑day; if it’s SWIFT or another rail it may take longer. I don’t have the cut-off/timeframe in the tools yet, so I can run an FX quote and check eligibility/cutoff as soon as you confirm the transfer type and that you want me to proceed.\n\nTell me the transfer type (SEPA or international) and confirm it’s from ACC-1011 and I’ll run the quote and give a firm answer.",
+    "tools": [
+     "get_account",
+     "get_transactions"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1152,
+     1152
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 3
+   }
+  ]
+ }
+]

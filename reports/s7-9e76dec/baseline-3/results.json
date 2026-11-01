@@ -1,0 +1,48 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- Your account: ACC-1011 (GBP) — balance 61,200.00 GBP.\n- Your transfer limits (as of the latest record): daily remaining (EUR equivalent) 95,086.00 EUR and monthly remaining 964,666.00 EUR.\n\nWhat I found\n- A 4,500 EUR transfer is within your daily and monthly limits, so there is no limits-based block.\n\nWhat I still need to confirm to answer “will it go through today?”\n- The destination currency/country and transfer type (e.g., SEPA, SWIFT, instant/local). Processing speed depends on those details and the recipient bank — I don’t have that from your message.\n- Whether you want the debit to come from ACC-1011 (your GBP account). If so, I can run an FX quote to show the exact GBP amount that will be debited and any spread/fee components.\n\nNext steps (pick one)\n1) Tell me the destination currency/country (and confirm ACC-1011) and I’ll run an FX quote and check whether same‑day processing is available.  \n2) If you want me to initiate the payment now, say “Proceed” and provide the transfer details and I’ll start it.  \n\nSummary: Limits and balance look sufficient, but I need the destination/method to confirm same‑day processing.",
+    "tools": [
+     "get_account",
+     "check_limits"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     1152,
+     1280,
+     1280
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 3
+   }
+  ]
+ }
+]

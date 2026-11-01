@@ -1,0 +1,46 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "defect",
+  "settings": {
+   "profile": "clean",
+   "defects": "D13"
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": false,
+      "detail": "check_limits not called"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "I checked your Verta account for this session.\n\nWhat I found: your primary account is ACC-1011 (currency: GBP) with a balance of 61,200.00 GBP.\n\nNext step: do you mean you want to send 4,500 EUR out from that GBP account? If so I will:\n- request an FX quote (rate, spread, allowance) to show how many GBP the conversion will require, and\n- check transfer eligibility/tier limits and whether the transfer can be executed today.\n\nPlease confirm you want to send 4,500 EUR from ACC-1011 and I’ll run those checks.",
+    "tools": [
+     "get_account"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1152
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 2
+   }
+  ]
+ }
+]
