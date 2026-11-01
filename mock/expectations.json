@@ -724,5 +724,177 @@
         }
       }
     }
+  },
+  {
+    "id": "s6-step1-reply1",
+    "httpRequest": {
+      "method": "POST",
+      "path": ".*/chat/completions",
+      "body": {
+        "type": "JSON_PATH",
+        "jsonPath": "$.messages[-1:][?(@.role == 'user' && @.content == 'Which account holds my BookDepot US payment?')]"
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ]
+      },
+      "body": {
+        "id": "s6-step1-reply1",
+        "object": "chat.completion",
+        "model": "anthropic/claude-haiku-5.5",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "tool_calls",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_s6_account",
+                  "type": "function",
+                  "function": {
+                    "name": "get_account",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "s6-step1-reply2",
+    "httpRequest": {
+      "method": "POST",
+      "path": ".*/chat/completions",
+      "body": {
+        "type": "JSON_PATH",
+        "jsonPath": "$.messages[-1:][?(@.role == 'tool' && @.tool_call_id == 'call_s6_account')]"
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ]
+      },
+      "body": {
+        "id": "s6-step1-reply2",
+        "object": "chat.completion",
+        "model": "anthropic/claude-haiku-5.5",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "Your account is ACC-1009 in EUR."
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "s6-step2-reply1",
+    "httpRequest": {
+      "method": "POST",
+      "path": ".*/chat/completions",
+      "body": {
+        "type": "JSON_PATH",
+        "jsonPath": "$.messages[-1:][?(@.role == 'user' && @.content == 'Find the BookDepot US charge for 120 USD from 9 September 2026 on ACC-1009.')]"
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ]
+      },
+      "body": {
+        "id": "s6-step2-reply1",
+        "object": "chat.completion",
+        "model": "anthropic/claude-haiku-5.5",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "tool_calls",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_s6_transactions",
+                  "type": "function",
+                  "function": {
+                    "name": "get_transactions",
+                    "arguments": "{\"account_id\": \"ACC-1009\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "s6-step2-reply2",
+    "httpRequest": {
+      "method": "POST",
+      "path": ".*/chat/completions",
+      "body": {
+        "type": "JSON_PATH",
+        "jsonPath": "$.messages[-1:][?(@.role == 'tool' && @.tool_call_id == 'call_s6_transactions')]"
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ]
+      },
+      "body": {
+        "id": "s6-step2-reply2",
+        "object": "chat.completion",
+        "model": "anthropic/claude-haiku-5.5",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": "TX-0801 is the BookDepot US card charge dated 9 September 2026 for 120 USD on ACC-1009."
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0
+        }
+      }
+    }
   }
 ]
