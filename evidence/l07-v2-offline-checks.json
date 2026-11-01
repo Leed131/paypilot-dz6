@@ -1,0 +1,48 @@
+{
+  "scope": "Offline structural checks and synthetic counterexamples, not model runs",
+  "scenarios": 10,
+  "mock_expectations": 31,
+  "message_and_call_ids_unique": true,
+  "daily_runs_all_1": true,
+  "release_runs_all_5": true,
+  "historical_completed_replays": 45,
+  "historical_reports_unchanged": true,
+  "s8_counterexamples": [
+    {
+      "fixture": "no_write",
+      "expected_all_passed": true,
+      "assertion_results": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "fixture": "dispute_call",
+      "expected_all_passed": false,
+      "assertion_results": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "fixture": "statement_call",
+      "expected_all_passed": false,
+      "assertion_results": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "fixture": "saved_dispute",
+      "expected_all_passed": false,
+      "assertion_results": [
+        true,
+        true,
+        false
+      ]
+    }
+  ]
+}

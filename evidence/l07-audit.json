@@ -1,0 +1,2426 @@
+{
+  "scope": "Offline replay of supplied reports, selected live-step spans and state snapshots. No network or model calls.",
+  "completed_sessions": 45,
+  "groups": {
+    "S1/baseline": 1,
+    "S1/defect": 1,
+    "S2/baseline": 1,
+    "S3/baseline": 2,
+    "S3/defect": 18,
+    "S4/baseline": 1,
+    "S5/baseline": 5,
+    "S5/defect": 5,
+    "S6/baseline": 1,
+    "S6/defect": 1,
+    "S7/baseline": 5,
+    "S7/defect": 4
+  },
+  "completed_model_calls": 164,
+  "recorded_completed_input_tokens": 286678,
+  "recorded_completed_output_tokens": 66379,
+  "technical_errors": [
+    {
+      "log": "reports/s3-20261101T171416/baseline-1/terminal.log",
+      "errors": [
+        "ERROR: the stand does not know ['D29']: update paypilot-stand to the commit named in README"
+      ],
+      "latest_snapshot_request_id": "cc1c9c15a62746ac",
+      "snapshot_is_a_completed_step_elsewhere": true,
+      "classification": "setup incompatibility; snapshots may be stale"
+    },
+    {
+      "log": "reports/s3-20261101T180659/defect-1/terminal.log",
+      "errors": [
+        "ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error"
+      ],
+      "latest_snapshot_request_id": "5ffa6ee6407a42f6",
+      "snapshot_is_a_completed_step_elsewhere": false,
+      "classification": "incomplete transport attempt; excluded from completed-run rates"
+    },
+    {
+      "log": "reports/s3-defect-recovery-20261101T181100/defect-4/terminal.log",
+      "errors": [
+        "ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error"
+      ],
+      "latest_snapshot_request_id": "65f821f27aa948d7",
+      "snapshot_is_a_completed_step_elsewhere": false,
+      "classification": "incomplete transport attempt; excluded from completed-run rates"
+    },
+    {
+      "log": "reports/s7-9e76dec/baseline-2/terminal.log",
+      "errors": [
+        "ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error"
+      ],
+      "latest_snapshot_request_id": "95dfa15ebd6a4d1a",
+      "snapshot_is_a_completed_step_elsewhere": true,
+      "classification": "incomplete transport attempt; excluded from completed-run rates"
+    },
+    {
+      "log": "reports/s7-9e76dec/defect-1/terminal.log",
+      "errors": [
+        "ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error"
+      ],
+      "latest_snapshot_request_id": "4a657294e7474030",
+      "snapshot_is_a_completed_step_elsewhere": true,
+      "classification": "incomplete transport attempt; excluded from completed-run rates"
+    },
+    {
+      "log": "reports/s7-9e76dec/defect-5/terminal.log",
+      "errors": [
+        "ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error"
+      ],
+      "latest_snapshot_request_id": "3b90a7d864844c4f",
+      "snapshot_is_a_completed_step_elsewhere": true,
+      "classification": "incomplete transport attempt; excluded from completed-run rates"
+    },
+    {
+      "log": "reports/s7-9e76dec/defect-5-retry/terminal.log",
+      "errors": [
+        "ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error"
+      ],
+      "latest_snapshot_request_id": "3b90a7d864844c4f",
+      "snapshot_is_a_completed_step_elsewhere": true,
+      "classification": "incomplete transport attempt; excluded from completed-run rates"
+    }
+  ],
+  "sessions": [
+    {
+      "report": "reports/s1-20261101T171236/baseline/results.json",
+      "scenario": "S1",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "b812392b9baa4d43",
+      "session_id": "d9da6b7ab86b",
+      "started_at_utc": "2026-11-01T16:12:37.768021+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_called",
+          "passed": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "tool_order",
+          "passed": true,
+          "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+        },
+        {
+          "kind": "state_row",
+          "passed": true,
+          "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 7545,
+      "output_tokens": 593,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0202",
+          "reason_code": "unauthorized_debit",
+          "amount": 89.99,
+          "currency": "USD"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0202",
+          "account_id": "ACC-1003",
+          "reason_code": "unauthorized_debit",
+          "amount": 89.99,
+          "currency": "USD",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "5289c722cceb29482f4169713de4f39b4ac69e4976399767a124cc2a627669ca",
+      "trace_file_sha256": "8f105e385691a6de8af7dd12c19e5324899d10aaad7b861b2e3b2f8ca49c2bfb"
+    },
+    {
+      "report": "reports/s1-20261101T171236/defect/results.json",
+      "scenario": "S1",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D12"
+      },
+      "request_id": "cc1c9c15a62746ac",
+      "session_id": "bca54ab54125",
+      "started_at_utc": "2026-11-01T16:12:49.277449+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_called",
+          "passed": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "tool_order",
+          "passed": true,
+          "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+        },
+        {
+          "kind": "state_row",
+          "passed": false,
+          "detail": "account_id='ACC-1002', expected 'ACC-1003'"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 7886,
+      "output_tokens": 787,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0202",
+          "reason_code": "unauthorized_debit",
+          "amount": 89.99,
+          "currency": "USD"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0202",
+          "account_id": "ACC-1002",
+          "reason_code": "unauthorized_debit",
+          "amount": 89.99,
+          "currency": "USD",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "8d346c8a7d72deb232e5ba75872a1bf0208a291141500883e41975ca27f07c02",
+      "trace_file_sha256": "52b03aabd367b23dbfecf8af1d59db130a1fb99afb34561b5b00efb4e5854432"
+    },
+    {
+      "report": "reports/s2-baseline-20261101T170800/results.json",
+      "scenario": "S2",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "5a6020d0e2f94164",
+      "session_id": "c29666977637",
+      "started_at_utc": "2026-11-01T16:08:01.470728+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_called",
+          "passed": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]"
+        },
+        {
+          "kind": "tool_not_called",
+          "passed": true,
+          "detail": "create_dispute{'transaction_id': 'TX-0204'} called 0x"
+        },
+        {
+          "kind": "state_row",
+          "passed": true,
+          "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 9229,
+      "output_tokens": 1193,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0202",
+          "reason_code": "unauthorized_debit"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0202",
+          "account_id": "ACC-1003",
+          "reason_code": "unauthorized_debit",
+          "amount": 89.99,
+          "currency": "USD",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "40aa15c98167ff2e2fc7fc39a13df3ecea01f5865f2a951cf8400dee1ea64176",
+      "trace_file_sha256": "49a81a462699456cead1d1286e18002707db94c5fd27f19ad021fa714abee13f"
+    },
+    {
+      "report": "reports/s3-20261101T172216/baseline-1/results.json",
+      "scenario": "S3",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "8d8029bbfca14531",
+      "session_id": "8bc1153c8ada",
+      "started_at_utc": "2026-11-01T16:22:17.921662+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": true,
+          "detail": "result matches the contract"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": true,
+          "detail": "1 tool calls ['check_dispute_eligibility'], max 2"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        1408
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3369,
+      "output_tokens": 1824,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "299cf8d8eb9ea21f5907b63bacaec45fb4a801d9f18736c8a03b0d812170453c",
+      "trace_file_sha256": "99986a626331291ed95b86888c840364be7085ecf92f70941587f590ce279f0a"
+    },
+    {
+      "report": "reports/s3-20261101T172216/defect-1/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "22171cad5e1d4e8b",
+      "session_id": "827b5801ff9e",
+      "started_at_utc": "2026-11-01T16:22:40.111884+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "5 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human', 'get_account', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 6,
+      "cache_read": [
+        0,
+        1536,
+        1536,
+        1664,
+        1664,
+        1792
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 10743,
+      "output_tokens": 1522,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "0a111c9de87cd8dc5d8bc1753069bde7134ad1ba5f52564fe6602cc6f03da3ce",
+      "trace_file_sha256": "ab60bfcdbd9425b278331523d7a748e5766b9de5161619a22f6eff5913c81acd"
+    },
+    {
+      "report": "reports/s3-20261101T172216/defect-2/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "e0173c4cbb134ff3",
+      "session_id": "522f4b07f0b3",
+      "started_at_utc": "2026-11-01T16:22:59.638007+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "6 tool calls ['check_dispute_eligibility', 'search_knowledge_base', 'search_knowledge_base', 'create_dispute', 'get_account', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 7,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        2048,
+        2432,
+        2432,
+        2688
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 16252,
+      "output_tokens": 1971,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "b6c4313ce4a19eaf18ebc3ad2924f6c4e97ef440d0c36b6392f3a8442195a564",
+      "trace_file_sha256": "4604d1539415559350306bab9639d8f4e5601ab122d0837d410d85a0079ceed0"
+    },
+    {
+      "report": "reports/s3-20261101T172216/defect-3/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "ad0da309e45a4182",
+      "session_id": "c886e7a7c0bd",
+      "started_at_utc": "2026-11-01T16:23:27.671356+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "3 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 6840,
+      "output_tokens": 2078,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "c838eddfe6f24697d30b9e799259145a94675204b378f62d8a0d898ac5c7aa2e",
+      "trace_file_sha256": "b47c5f3f6d95b61569e809c506b98141bb23cdaffe4cdbc08e3eb6ed3368cd8d"
+    },
+    {
+      "report": "reports/s3-20261101T172216/defect-4/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "8d1b049f1adb4426",
+      "session_id": "e50efc482dbe",
+      "started_at_utc": "2026-11-01T16:23:52.493436+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1408,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8885,
+      "output_tokens": 1357,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "cba3f800f0dfbd268870e8d8e40d9a834108ab9e299a80704df089f81a1b880a",
+      "trace_file_sha256": "15d5511f048d34669ef232fb9d49eacb66d6d048be96bce03f2e2e800eba1779"
+    },
+    {
+      "report": "reports/s3-20261101T172216/defect-5/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "88ebb64a2fc74155",
+      "session_id": "819492fd04d3",
+      "started_at_utc": "2026-11-01T16:24:11.240546+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "3 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        0,
+        1536,
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 6835,
+      "output_tokens": 2319,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "d65ce1217e10a71786c68d4d2206bce700e48f073e7a9c3b7b9ac95b0df62ed3",
+      "trace_file_sha256": "299cf9727a6e5dcfe76e4838e5f56df763b6e168e651b710b6c4839c292c3bc7"
+    },
+    {
+      "report": "reports/s3-20261101T180659/baseline-1/results.json",
+      "scenario": "S3",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "b63e554d04864b99",
+      "session_id": "f63289265d98",
+      "started_at_utc": "2026-11-01T17:07:00.368680+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": true,
+          "detail": "result matches the contract"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": true,
+          "detail": "2 tool calls ['get_account', 'check_dispute_eligibility'], max 2"
+        }
+      ],
+      "model_calls": 3,
+      "cache_read": [
+        1408,
+        1536,
+        1536
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 5200,
+      "output_tokens": 2227,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "97ade3be375acf06672b418ac02f2ef0ec31498e679519cfd303f2a56ccc87d0",
+      "trace_file_sha256": "75c8299c78d0f8b8fd289f97f92a7dc051e697ac8cf6341e5dd3915c74b0d2de"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181100/defect-1/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "9f24c57f09a74241",
+      "session_id": "6d23dfda8ef4",
+      "started_at_utc": "2026-11-01T17:11:00.852137+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8879,
+      "output_tokens": 1588,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "5d9a7df2b5011a26d30d4ad0876e7f2747e9ba7dce7db1b9edd4f092acc6ba8c",
+      "trace_file_sha256": "74ed09adaa9676f099a69d8676b9a2999d3c239d8f6b6d2f6fa49432b7fb7e46"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181100/defect-2/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "dbba1db41e4948e7",
+      "session_id": "32f1329db879",
+      "started_at_utc": "2026-11-01T17:11:25.054354+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8877,
+      "output_tokens": 1004,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "d18628ce71519715f4c05fd31cfc298cd9dfc9166ded658a21562160149516c8",
+      "trace_file_sha256": "afad40acbef0e6f9f28c78ec2d88a3bd9763d20514e18ee448baf5adf00e244d"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181100/defect-3/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "dc68e7990fbd419a",
+      "session_id": "55c36e5489ef",
+      "started_at_utc": "2026-11-01T17:11:40.162375+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "3 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute'], max 2"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 6966,
+      "output_tokens": 1046,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "145a8509dfb7b698bd12e2f2a5388a63a6f44871c492da9b2cd686697b4cee66",
+      "trace_file_sha256": "84a7664e4001103caaee209f43f86c3882e7777032478352ca7beff4c886b8f7"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181954/defect-1/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "49aed64300504b9a",
+      "session_id": "ff4eee6ff7df",
+      "started_at_utc": "2026-11-01T17:19:55.667789+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "5 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human', 'get_account', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 6,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664,
+        1792
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 10772,
+      "output_tokens": 1819,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "25f204b2e5437458935ee1fae072fe06ee98f7766f35bd09d90d492a52e8dd44",
+      "trace_file_sha256": "cc7843e4fbd796b5d1f5aa57c5bc50f81f9f63729359fdc31c4ebf7182bc1856"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181954/defect-2/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "fb0eb07b7270411b",
+      "session_id": "36c47ed007ce",
+      "started_at_utc": "2026-11-01T17:20:22.139966+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": true,
+          "detail": "1 tool calls ['check_dispute_eligibility'], max 2"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        1408,
+        1536
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3291,
+      "output_tokens": 1280,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "cead0efc19ead9d1f4df9f34a857ac4b3b27474aad48f4af0215b0b96fd95fc2",
+      "trace_file_sha256": "e5b75c4c803af79314d209959a434829b63c1595f7911a3a7a61d0241dab49cd"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181954/defect-3/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "3ffca5d8a1534465",
+      "session_id": "d35dfef9cd39",
+      "started_at_utc": "2026-11-01T17:20:39.286562+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": true,
+          "detail": "1 tool calls ['check_dispute_eligibility'], max 2"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        1408,
+        1536
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3291,
+      "output_tokens": 1979,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "56cbfbab2bc7ebb740e4381f4187dbf2d7bc39ee8a8c125fb2b52d40e7ac1efb",
+      "trace_file_sha256": "aadecd2d7cb91f4d054bc1cec0bca6131a4f80f6a996a8ae88eff2c557a640d4"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181954/defect-4/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "804abe3816ce4242",
+      "session_id": "e60b327acfb0",
+      "started_at_utc": "2026-11-01T17:21:00.791031+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1536,
+        1664,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8885,
+      "output_tokens": 1212,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "42ac6574e35924a0729171c05d69c8e6c429c86454b8d1aa5945c02f1e6a6453",
+      "trace_file_sha256": "b5e98f5383a9e710b4dcd17e63644eeea4073a6c62f3aa2d2866bf8404d5a53a"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T181954/defect-5/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "1125aa178c964baa",
+      "session_id": "9537a460ed0e",
+      "started_at_utc": "2026-11-01T17:21:19.594239+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8898,
+      "output_tokens": 1327,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge",
+          "amount": 240,
+          "currency": "EUR"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "f500a0c1ca82e8982e7a374bc40048c0f595190f4f24ed33a083b91e90c4f321",
+      "trace_file_sha256": "e3eb89afc9b71882167e67265bd4cb71dd40a427fc16fae2561c35c740e2ee2e"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T182156/defect-1/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "b13f8bae56984a5f",
+      "session_id": "012395d778f9",
+      "started_at_utc": "2026-11-01T17:21:56.887467+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8886,
+      "output_tokens": 1211,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "3645ba209e763a0379dcd3995bceb6e954e6c06e6dfefd8cafc3727fd2400aef",
+      "trace_file_sha256": "9785477ce05785252663f1a20341b259a9f3facba97d1b9f70c1fa299dc849dc"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T182156/defect-2/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "e2f1bb2d3349486c",
+      "session_id": "f284153a2011",
+      "started_at_utc": "2026-11-01T17:22:14.779455+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "5 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human', 'get_account', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 6,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 10740,
+      "output_tokens": 2474,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "9358090dfe546f21c710c8bb25372666e88b25049a09cd6506996b309264153c",
+      "trace_file_sha256": "34c8bdaeec063dd63a00df2b8464775c86aa9258fb615f6e8c57501145dc0e64"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T182156/defect-3/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "ee4b1d89d54a4d3b",
+      "session_id": "9a5344651194",
+      "started_at_utc": "2026-11-01T17:22:48.807048+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "5 tool calls ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human', 'get_account', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 6,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664,
+        1792
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 10796,
+      "output_tokens": 1787,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge",
+          "amount": 240,
+          "currency": "EUR"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "4ff76829ab9cb8a66ee1dfa6914bda8097ed72413164ecc1d0b6716382b7656a",
+      "trace_file_sha256": "e4d9feb2aa79d34e8e1f7783604da7a960aa7232ac2e10aed9b951b335a85327"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T182156/defect-4/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "3eec01cb41ba4e12",
+      "session_id": "a123caf66a22",
+      "started_at_utc": "2026-11-01T17:23:13.803787+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1536,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8879,
+      "output_tokens": 1381,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "b370cf8294e9a04aee7196e1d51fb9b83a2488236fd139efeb802868add5ce57",
+      "trace_file_sha256": "3d2a622f5cef0970c4f6545ab173e5009bef80aba7f821c5b4ab7439a5b6fd83"
+    },
+    {
+      "report": "reports/s3-defect-recovery-20261101T182156/defect-5/results.json",
+      "scenario": "S3",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D29"
+      },
+      "request_id": "ce7a5e366c794857",
+      "session_id": "c6437900b04d",
+      "started_at_utc": "2026-11-01T17:23:34.662609+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_result_schema",
+          "passed": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": false,
+          "detail": "create_dispute called 1x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "passed": false,
+          "detail": "4 tool calls ['get_account', 'check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], max 2"
+        }
+      ],
+      "model_calls": 5,
+      "cache_read": [
+        1408,
+        1408,
+        1536,
+        1664,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 8914,
+      "output_tokens": 1161,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0402",
+          "reason_code": "duplicate_charge"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0402",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "47232fb6ff0a67fe7fa05bae0842b787e16bde92b7f60978700bfc32d4d537d6",
+      "trace_file_sha256": "04aa87f0e4bd226e6d182d6fb8fcc055f913188ed66421f15bc359ecf8d2720e"
+    },
+    {
+      "report": "reports/s4-baseline-20261101T183712/results.json",
+      "scenario": "S4",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "4dcb269d673d4346",
+      "session_id": "3a8e77ab479d",
+      "started_at_utc": "2026-11-01T17:37:13.364499+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "state_row",
+          "passed": true,
+          "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        1280
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3158,
+      "output_tokens": 1957,
+      "create_dispute_calls": [],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0401",
+          "account_id": "ACC-1005",
+          "reason_code": "duplicate_charge",
+          "amount": 240.0,
+          "currency": "EUR",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "7007c3f20f6bdd61798e07308f873dc8c5079cedfe5bec6915a171c13aa97417",
+      "trace_file_sha256": "1f15a0914e19f6d8914b12bdc24886627d23234afdeb93ad2fdbcf9fc671dd01"
+    },
+    {
+      "report": "reports/s5-20261101T182619/baseline/results.json",
+      "scenario": "S5",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "8bc2e2078d714f44",
+      "session_id": "7215e296c4a3",
+      "started_at_utc": "2026-11-01T17:26:20.376339+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": true,
+          "detail": "cache_read per call from #2: [1536]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        1536
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3554,
+      "output_tokens": 940,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "0dd9d3723a862eb82c14bcd5ca87f815afa6feb34aa99e020b67070439f47788",
+      "trace_file_sha256": "5ce2c21e90c47789a090d13e99ae9f86f687778a8b00c4c9f6c75cc48fe84bcd"
+    },
+    {
+      "report": "reports/s5-20261101T182619/baseline-2/results.json",
+      "scenario": "S5",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "313daf1d8867415b",
+      "session_id": "862409f2a22f",
+      "started_at_utc": "2026-11-01T17:28:20.537011+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": true,
+          "detail": "cache_read per call from #2: [1664]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3554,
+      "output_tokens": 730,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "3ce7a2db35b99b5327bbf12fd52b29bd1cbabd62a2a99735195b35be6c6c203a",
+      "trace_file_sha256": "16a2d1073cb4c53771c5c2c48c6325891b640c47509e5c414f9a592d1b8cc82a"
+    },
+    {
+      "report": "reports/s5-20261101T182619/baseline-3/results.json",
+      "scenario": "S5",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "8baaccb10229454e",
+      "session_id": "a6f3996c0537",
+      "started_at_utc": "2026-11-01T17:28:31.702907+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": true,
+          "detail": "cache_read per call from #2: [1664]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3554,
+      "output_tokens": 654,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "2ed66ddbd3318b048cf214149cb63e9f2e2e41a35a06ee830a0a49bd410f93fb",
+      "trace_file_sha256": "86989882d154847c19b5ab63f8e8f1f18823839bd45725f011f289583801aceb"
+    },
+    {
+      "report": "reports/s5-20261101T182619/baseline-4/results.json",
+      "scenario": "S5",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "8893390a11794d3c",
+      "session_id": "be12df5958e7",
+      "started_at_utc": "2026-11-01T17:28:42.510000+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": true,
+          "detail": "cache_read per call from #2: [1664]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3554,
+      "output_tokens": 683,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "892d9d576dcb27dca6cba9c35c8e35669b1603804e43e512d3720973711e5ca7",
+      "trace_file_sha256": "379551633d00909ef4f4e5575fa36739380e556ee1225558b16147c7ce1289ca"
+    },
+    {
+      "report": "reports/s5-20261101T182619/baseline-5/results.json",
+      "scenario": "S5",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "58151246a0b542dd",
+      "session_id": "e438c494d6aa",
+      "started_at_utc": "2026-11-01T17:28:53.413067+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": true,
+          "detail": "cache_read per call from #2: [1664]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        1536,
+        1664
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3554,
+      "output_tokens": 921,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "21b24e3b76a7d5ddb1bbd38444fd16980477a1b2e6652386a52160807872b46b",
+      "trace_file_sha256": "762d69677e7d090b5845db9e5e9ab497cbc6cc9d28eb86ab0658326ce1298047"
+    },
+    {
+      "report": "reports/s5-20261101T182619/defect/results.json",
+      "scenario": "S5",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D28"
+      },
+      "request_id": "68ffedce0b5f4e94",
+      "session_id": "32c2f04a295f",
+      "started_at_utc": "2026-11-01T17:26:32.097766+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": false,
+          "detail": "cache_read per call from #2: [0]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3580,
+      "output_tokens": 998,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "be6f6299c272ddcce0f18743ee1c0b6d4197a0cc5aca746b0961c53e4cbb1402",
+      "trace_file_sha256": "7951021a351d5227f9b77f73d5f2a646d4582da74b80993f1454e60cf7d3f2ef"
+    },
+    {
+      "report": "reports/s5-20261101T182619/defect-2/results.json",
+      "scenario": "S5",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D28"
+      },
+      "request_id": "5fa9d8c8917a4f35",
+      "session_id": "473b8a9b7616",
+      "started_at_utc": "2026-11-01T17:29:04.930639+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": false,
+          "detail": "cache_read per call from #2: [0]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3577,
+      "output_tokens": 803,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "fd4167027ea43ad644da13119f657f1142e0277afff2f6827550dd0e13c980ed",
+      "trace_file_sha256": "66cceb03945642d635583d718a88064f9734b3ed134d5148d47d7a1003832fe3"
+    },
+    {
+      "report": "reports/s5-20261101T182619/defect-3/results.json",
+      "scenario": "S5",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D28"
+      },
+      "request_id": "35b61c8444d44b43",
+      "session_id": "fff8b4fc7e74",
+      "started_at_utc": "2026-11-01T17:29:15.103680+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": false,
+          "detail": "cache_read per call from #2: [0]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3577,
+      "output_tokens": 744,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "c508251f00853d95dc65dd30f1bfdeff417386edd895c80b3ceb618bf5569b8c",
+      "trace_file_sha256": "e9ddb4bfbaaf7c0124eacd6d6ee772e59399cab0658f3e6ab6879158be30a34f"
+    },
+    {
+      "report": "reports/s5-20261101T182619/defect-4/results.json",
+      "scenario": "S5",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D28"
+      },
+      "request_id": "f77e4653ce3d44bf",
+      "session_id": "ef0b4b5e1010",
+      "started_at_utc": "2026-11-01T17:29:25.555576+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": false,
+          "detail": "cache_read per call from #2: [0]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3581,
+      "output_tokens": 160,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "4c45b08920613fc3f201f7837f916bb27d3f5d3e464925c60a6cd2f704444953",
+      "trace_file_sha256": "7a64cebecc68a3c0a19b194d5fe27a4094ae8e10aea30e6fea076b90ef2265f0"
+    },
+    {
+      "report": "reports/s5-20261101T182619/defect-5/results.json",
+      "scenario": "S5",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D28"
+      },
+      "request_id": "d21b4855b5084a2e",
+      "session_id": "565eda56dcb0",
+      "started_at_utc": "2026-11-01T17:29:30.174753+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "cache_read_min",
+          "passed": false,
+          "detail": "cache_read per call from #2: [0]"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        0
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 3575,
+      "output_tokens": 241,
+      "create_dispute_calls": [],
+      "disputes": null,
+      "forecast_commit": "baf9595edfcc5cd971d80f9333aa0797a346f75c",
+      "report_sha256": "9ab336daf391be4cea9ab2c2e6a1fe149f502ffad1bbaced9111bf3ea2d7fca8",
+      "trace_file_sha256": "7259de9bc89233813fe9aa80d72591966d7b05206cb8345b89ab265f5452635d"
+    },
+    {
+      "report": "reports/s6-20261101T185052/baseline/results.json",
+      "scenario": "S6",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "e580d4d583f44c8c",
+      "session_id": "fd710164c369",
+      "started_at_utc": "2026-11-01T17:50:53.199981+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_called",
+          "passed": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "state_row",
+          "passed": true,
+          "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        0,
+        1536,
+        1664,
+        1792
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 7565,
+      "output_tokens": 862,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0801",
+          "reason_code": "unauthorized_debit",
+          "amount": 120,
+          "currency": "USD"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0801",
+          "account_id": "ACC-1009",
+          "reason_code": "unauthorized_debit",
+          "amount": 120.0,
+          "currency": "USD",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "8199f5f505526caf9c2bc32aef0fd31e90ba1e56",
+      "report_sha256": "afd65c7f2dc27855523150cebda242a4960fb2148a803f281df08229c95b2684",
+      "trace_file_sha256": "28a63c543b941f379a2748a5dd87114828301ed3d1dd52c0544ce88ccdda51d1"
+    },
+    {
+      "report": "reports/s6-20261101T185052/defect/results.json",
+      "scenario": "S6",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D11"
+      },
+      "request_id": "577ca42dea074a51",
+      "session_id": "897f93e94023",
+      "started_at_utc": "2026-11-01T17:51:09.269320+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_called",
+          "passed": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "state_row",
+          "passed": true,
+          "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        1536,
+        1536,
+        1792,
+        1792
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 7575,
+      "output_tokens": 675,
+      "create_dispute_calls": [
+        {
+          "transaction_id": "TX-0801",
+          "reason_code": "unauthorized_debit",
+          "amount": 120,
+          "currency": "USD"
+        }
+      ],
+      "disputes": [
+        {
+          "id": 1,
+          "transaction_id": "TX-0801",
+          "account_id": "ACC-1009",
+          "reason_code": "unauthorized_debit",
+          "amount": 120.0,
+          "currency": "USD",
+          "status": "open",
+          "created_at": "2026-09-15T10:00:00+00:00"
+        }
+      ],
+      "forecast_commit": "8199f5f505526caf9c2bc32aef0fd31e90ba1e56",
+      "report_sha256": "a2fbb28d0304a20eddaeed7ad6350bbaa0867725879deb442e990ada94dbd948",
+      "trace_file_sha256": "72532f106557e935ad8d7d3cb2c5a3752d61e02fbcfe8e0936b68623cbc5112f"
+    },
+    {
+      "report": "reports/s7-9e76dec/baseline-1/results.json",
+      "scenario": "S7",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "95dfa15ebd6a4d1a",
+      "session_id": "7d9a21c90829",
+      "started_at_utc": "2026-11-01T18:18:20.283083+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": true,
+          "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        0,
+        1152,
+        1280,
+        1280
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 5875,
+      "output_tokens": 2571,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "0465263ef077904a56ce145ddababc5003cb06e8ebbccd7de80f08269a57b88c",
+      "trace_file_sha256": "4b5ca12897bcd8fb21fd521946c9613a4dec386834b35454eed48a59e931f2c5"
+    },
+    {
+      "report": "reports/s7-9e76dec/baseline-2-retry/results.json",
+      "scenario": "S7",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "78106aa6ea914df2",
+      "session_id": "8c5d5da9f8fe",
+      "started_at_utc": "2026-11-01T18:23:53.684021+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": true,
+          "detail": "tools ['get_account', 'check_limits']"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 3,
+      "cache_read": [
+        0,
+        1280,
+        1280
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 4200,
+      "output_tokens": 2070,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "d877c805219cc7aa1832c309926dc98f9ca00021d75a57af3caca1e5c4dd3a0a",
+      "trace_file_sha256": "3d1b72cd2bd0a9e62adbc1fca455e7f46c3b11bde2b99fda8d918f0cf2afba7a"
+    },
+    {
+      "report": "reports/s7-9e76dec/baseline-3/results.json",
+      "scenario": "S7",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "5c566c33e525471f",
+      "session_id": "972790755a27",
+      "started_at_utc": "2026-11-01T18:24:17.744269+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": true,
+          "detail": "tools ['get_account', 'check_limits']"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 3,
+      "cache_read": [
+        1152,
+        1280,
+        1280
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 4200,
+      "output_tokens": 2192,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "787fd53b1b193d8aaf69da9b0b7566ed53a3b6e2311d052caf4420ec5a43be47",
+      "trace_file_sha256": "ee65bf6970a9b6af119f9c3a646a14c9ad38c4de91a32104e36ddef39f82907d"
+    },
+    {
+      "report": "reports/s7-9e76dec/baseline-4/results.json",
+      "scenario": "S7",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "9c5daa7f23cb425d",
+      "session_id": "1cbfc1994c49",
+      "started_at_utc": "2026-11-01T18:24:46.642318+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": true,
+          "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        1152,
+        1152,
+        1280,
+        1408
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 5890,
+      "output_tokens": 1934,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "b63e365df81dfc85697ede487083a82ff46909926a9484024f3543dc62d478e0",
+      "trace_file_sha256": "a8ce8d9dd6d3e24ab358c74af0ac5a8dd7687183772c4a658cca603a57470fa9"
+    },
+    {
+      "report": "reports/s7-9e76dec/baseline-5/results.json",
+      "scenario": "S7",
+      "condition": "baseline",
+      "settings": {
+        "profile": "clean",
+        "defects": ""
+      },
+      "request_id": "4a657294e7474030",
+      "session_id": "d12eef60956d",
+      "started_at_utc": "2026-11-01T18:25:10.139393+00:00",
+      "passed": true,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": true,
+          "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 4,
+      "cache_read": [
+        0,
+        1280,
+        1280,
+        1536
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 5875,
+      "output_tokens": 2573,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "41e5412367ebb9cfeff649e5b15eb46459f57b5ca8a8ae80bd68de20a4b65f87",
+      "trace_file_sha256": "d349262a03d2a509f349261e38cff33caef3807c2b2c1a66979f9ce86d7f2995"
+    },
+    {
+      "report": "reports/s7-9e76dec/defect-1-retry/results.json",
+      "scenario": "S7",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D13"
+      },
+      "request_id": "b0ab2e35753e491b",
+      "session_id": "da28e2f535ef",
+      "started_at_utc": "2026-11-01T18:30:28.824438+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": false,
+          "detail": "get_transactions should not be called"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 3,
+      "cache_read": [
+        0,
+        1152,
+        1152
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 4515,
+      "output_tokens": 2794,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "47ba4d12f8a95261a069146ca49476a5032834d69c821c0a1195c271ffab238a",
+      "trace_file_sha256": "13f33809d98b9aadf684fe803aa7cd9b7f7131fb30535713232f2569cbc096a3"
+    },
+    {
+      "report": "reports/s7-9e76dec/defect-2/results.json",
+      "scenario": "S7",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D13"
+      },
+      "request_id": "a2088d29aba7417b",
+      "session_id": "2de6991dabe0",
+      "started_at_utc": "2026-11-01T18:30:59.902777+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": false,
+          "detail": "check_limits not called; get_transactions should not be called"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 3,
+      "cache_read": [
+        0,
+        1152,
+        1152
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 4397,
+      "output_tokens": 3341,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "b4b9f1e32b1c056aab373cfaae3a936b336faf695c662502e8de380d2a477bfa",
+      "trace_file_sha256": "e63108301d54970305ef21979eb4df6684fad3b869bb7b7c0ba076b7d8a7f2bb"
+    },
+    {
+      "report": "reports/s7-9e76dec/defect-3/results.json",
+      "scenario": "S7",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D13"
+      },
+      "request_id": "8501db8e93194018",
+      "session_id": "b52b1a252009",
+      "started_at_utc": "2026-11-01T18:31:38.187642+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": false,
+          "detail": "check_limits not called; get_transactions should not be called"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 3,
+      "cache_read": [
+        0,
+        1152,
+        1152
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 4243,
+      "output_tokens": 2211,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "bfc3e388916d14a0f3acf4fd854faa6c4775ccb0b831b642c0e3d393edacd7a2",
+      "trace_file_sha256": "6b55007864fac966366ae0234814b075d1337fdadb218f78fd930ea0899477ac"
+    },
+    {
+      "report": "reports/s7-9e76dec/defect-4/results.json",
+      "scenario": "S7",
+      "condition": "defect",
+      "settings": {
+        "profile": "clean",
+        "defects": "D13"
+      },
+      "request_id": "3b90a7d864844c4f",
+      "session_id": "5f4c79c577fb",
+      "started_at_utc": "2026-11-01T18:32:05.101216+00:00",
+      "passed": false,
+      "assertion_replay": [
+        {
+          "kind": "tool_sequence",
+          "passed": false,
+          "detail": "check_limits not called"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "passed": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "model_calls": 2,
+      "cache_read": [
+        0,
+        1152
+      ],
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "input_tokens": 2667,
+      "output_tokens": 1185,
+      "create_dispute_calls": [],
+      "disputes": [],
+      "forecast_commit": "9e76dec44c7f61d6cfe16286763489cd699936c6",
+      "report_sha256": "ebb4aa096fff13fd76d9021600550c9505cdf35acc62d1790df22cf6a449f5bd",
+      "trace_file_sha256": "bf9d2d6a829894f50da132f11d53c7422fdd75d699da7391ec4ba464d0c968ea"
+    }
+  ]
+}

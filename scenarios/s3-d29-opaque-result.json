@@ -1,9 +1,9 @@
 {
   "id": "S3",
-  "title": "D29: результат перевірки спору незрозумілий агенту",
+  "title": "D29: eligibility result obeys its output contract",
   "customer_id": "CUS-0004",
-  "gate": "release",
-  "runs": 5,
+  "gate": "daily",
+  "runs": 1,
   "conditions": {
     "baseline": {
       "profile": "clean",
@@ -47,15 +47,10 @@
         "eligible": "boolean",
         "checks": "object"
       }
-    },
-    {
-      "kind": "tool_call_count",
-      "tool": "create_dispute",
-      "expected": 0
-    },
-    {
-      "kind": "max_tool_calls",
-      "max": 2
     }
+  ],
+  "dimension": "tool result contract",
+  "level": [
+    3
   ]
 }

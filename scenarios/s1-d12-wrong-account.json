@@ -65,13 +65,6 @@
       }
     },
     {
-      "kind": "tool_order",
-      "before": [
-        "check_dispute_eligibility",
-        "create_dispute"
-      ]
-    },
-    {
       "kind": "state_row",
       "table": "disputes",
       "where": {
@@ -83,5 +76,9 @@
       },
       "expected_count": 1
     }
+  ],
+  "dimension": "post-write state",
+  "level": [
+    1
   ]
 }

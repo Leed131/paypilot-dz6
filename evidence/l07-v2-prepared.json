@@ -1,0 +1,14 @@
+{
+  "status": "prepared offline; not live-validated or chain-ready",
+  "scenarios": 10,
+  "original_scenarios": [
+    "S6",
+    "S7",
+    "S8"
+  ],
+  "mock_expectations_on_disk": 31,
+  "live_mock_reloaded": false,
+  "new_model_calls": 0,
+  "backup": "evidence/l07-v2-backup-20261101T201045",
+  "historical_suite": "evidence/l07-recorded-suite"
+}
