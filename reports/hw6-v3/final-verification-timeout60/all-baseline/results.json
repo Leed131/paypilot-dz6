@@ -1,0 +1,420 @@
+[
+ {
+  "scenario": "S1",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "What I did\n- Checked dispute eligibility for TX-0202 (CloudServe Subscription, 89.99 USD, 8 Sep 2026) and confirmed it is eligible for an unauthorized-debit dispute.\n- Opened the dispute for 89.99 USD on your behalf.\n- Escalated the case to a human agent for review.\n\nWhat I found\n- Transaction: TX-0202 on ACC-1003 — 89.99 USD, CloudServe Subscription, 8 Sep 2026.\n- Eligibility: eligible=true; dispute window open; transaction status and compliance checks passed.\n- Dispute: created and now open (dispute_id 1).\n\nWhat happens next\n- A human agent will review and contact you if they need more information.\n- The dispute is open and under investigation; I'll send updates here as they arrive.\n- If you want, I can also send a copy of the dispute confirmation to the email on file. Should I do that?",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     1664,
+     1664,
+     1792,
+     1920
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 9
+   }
+  ]
+ },
+ {
+  "scenario": "S1O",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "tool_order",
+      "ok": true,
+      "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+     }
+    ],
+    "answer": "I opened an unauthorized-debit dispute for TX-0202 (CloudServe Subscription, 8 Sep 2026, 89.99 USD) on ACC-1003.\n\nWhat I did\n- Checked dispute eligibility for TX-0202 — it was eligible (within window, settled status, no compliance blocks).\n- Opened the dispute for 89.99 USD. Dispute ID: 1 — status: open.\n- Escalated your case to a human agent and queued it for review.\n\nWhat happens next\n- A human agent will review and follow up. I sent the escalation request to them.\n- If you need a copy of the statement or any other documents for the review, tell me which account and period and I can send it to the email on file.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     1536,
+     1664,
+     1792,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ },
+ {
+  "scenario": "S2",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]"
+     },
+     {
+      "kind": "tool_not_called",
+      "ok": true,
+      "detail": "create_dispute{'transaction_id': 'TX-0204'} called 0x"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "What I did\n- Retrieved your account and transactions.\n- Checked dispute eligibility for TX-0202 (CloudServe Subscription) for reason \"unauthorized debit\" — it is eligible.\n- Opened a dispute for TX-0202 and escalated your case to a human specialist.\n\nWhat I found\n- Transaction disputed: TX-0202, 8 Sep 2026, 89.99 USD, CloudServe Subscription — dispute ID 1, status: open.\n\nWhat happens next\n- A specialist has been assigned and the dispute is queued for review. They may contact you at the email address on file if they need more information. You’ll receive updates on the dispute through your account messages.\n\nAnything else I should do for you right now?",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 5,
+    "cache_read": [
+     1408,
+     1408,
+     1536,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 3,
+    "mock_seen": 8
+   }
+  ]
+ },
+ {
+  "scenario": "S3",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_result_schema",
+      "ok": true,
+      "detail": "result matches the contract"
+     }
+    ],
+    "answer": "What I did\n- I checked dispute eligibility for TX-0402 (TechMart Online — 14 Jul 2026 — 240.00 EUR).\n\nWhat I found\n- The system returned eligible = false. The 60-day dispute window expired on 2026-09-12, so we cannot open a duplicate-charge dispute for that transaction.\n\nWhat happens next / options\n- I cannot open the dispute.  \n- I can send an account statement for July to the email address on file if you want documentation to present to TechMart. Tell me to send it and I will.  \n- Or, if you’d like, I can escalate this to a human agent for further assistance — tell me to escalate and I will open that for you.  \n- Alternatively you can contact TechMart directly; if you want, I can draft a short message you can send to them.\n\nWhich option would you like me to take?",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1536,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S3B",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "2 tool calls ['get_account', 'check_dispute_eligibility'], max 2"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did\n- I attempted to open a duplicate-charge dispute for TX-0402 (TechMart Online, 240.00 EUR, 14 July 2026, settled).\n- I ran a dispute eligibility check.\n\nWhat I found\n- Eligibility: not eligible.\n- Reason: the 60-day dispute window expired on 2026-09-12 (check run as of 2026-09-15). Other checks (status, reason code, compliance) passed.\n\nWhat happens next\n- I cannot open a dispute for TX-0402 because the dispute window has passed.\n- Options I can take now, if you’d like:\n  1. Contact TechMart Online directly to request a refund (I can provide a short template message you can use).  \n  2. Send an account statement showing the transaction to the account holder’s registered email to support your claim—confirm if you want me to send this and I will do so. (Statements may only be sent to the email address on file.)\n  3. Escalate this case to a human agent for manual review and additional guidance—tell me if you want me to escalate.\n\nTell me which option you want me to take, or if you’d like the refund-message template to contact TechMart.",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     1408,
+     1408,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S4",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+     }
+    ],
+    "answer": "I checked again and did not open a second dispute.\n\nWhat I did\n- Re-ran dispute eligibility for TX-0401 (eligible).\n- Confirmed a dispute was already created earlier: dispute_id 1, status: open.\n\nWhat I found\n- The transaction is eligible for a duplicate-charge dispute and a dispute is already open for TX-0401.\n\nWhat happens next\n- Our disputes team will investigate and you’ll be notified at the email address registered to your account with any updates.\n\nIf you’d like, I can escalate this to a human agent now to request a confirmation or faster follow-up — shall I escalate?",
+    "tools": [
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     1280,
+     1280
+    ],
+    "cost_usd": null,
+    "mock_answered": 3,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S5",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": true,
+      "detail": "cache_read per call from #2: [1664]"
+     }
+    ],
+    "answer": "I checked your transfer limits (check_limits) as of 2026-09-15.\n\nFindings (EUR equivalent):\n- Daily limit: 100,000 EUR — Spent: 4,914 EUR — Remaining: 95,086 EUR\n- Monthly limit: 1,000,000 EUR — Spent: 35,334 EUR — Remaining: 964,666 EUR\n\nWhat happens next: if you'd like, I can (a) check limits in another currency, (b) run an FX quote for a specific conversion amount, or (c) help start a transfer. Which would you like?",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     1536,
+     1664
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ },
+ {
+  "scenario": "S6",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "I opened an unauthorized-debit dispute for TX-0801 (BookDepot US, 120 USD). Dispute ID: 1, status: open.\n\nWhat I did:\n- Checked dispute eligibility for unauthorized_debit and confirmed the transaction is eligible.\n- Created the dispute using the stored transaction amount and currency.\n\nWhat happens next:\n- The dispute is open; we'll investigate and may contact the merchant or card network.\n- I've escalated this case to a human agent for review and follow-up. They'll use the email address on file if they need to send statements or ask you for more information.\n\nIf you'd like, I can send you a copy of the transaction statement for the period that includes 9 Sep 2026 to the email on file.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     1536,
+     1664,
+     1792,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ },
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- I pulled your account (ACC-1011, currency: GBP, balance: 61,200.00 GBP) and your transfer limits.\n- I ran an FX quote for 4,500 EUR → GBP.\n\nWhat I found\n- Limits: your daily remaining (EUR-equiv.) is 95,086.00 EUR and monthly remaining is 964,666.00 EUR — a 4,500 EUR transfer is within both.\n- FX quote (EUR → GBP for 4,500 EUR):\n  - Mid rate: 0.854701\n  - Tier spread: 0.5% (allowance not applied — allowance_total: 5,000 EUR; allowance_used_before: 15,000 EUR)\n  - Gross (mid-rate) GBP: 3,846.153846\n  - Spread amount: 19.230769 GBP\n  - Final GBP amount (after spread): 3,826.923077 GBP (≈ 3,826.92 GBP)\n\nWhat happens next / confirmation needed\n- Based on your limits and balance, the transfer can be initiated today.\n- Actual receipt timing depends on the payment rail and the beneficiary bank’s processing (I don’t have those timings here).\n- If you’d like me to proceed now, confirm:\n  1) Which account to debit (ACC-1011 is the only account on file), and\n  2) the beneficiary (IBAN/details) to send to.\nOnce you confirm, I can initiate the transfer or schedule it for you.",
+    "tools": [
+     "get_account",
+     "check_limits",
+     "quote_fx"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1280,
+     1280,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 4
+   }
+  ]
+ },
+ {
+  "scenario": "S8",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I checked: the transactions for ACC-1003.\n\nWhat I found: TX-0202 — 8 September 2026 — 89.99 USD.\n\nWhat happens next: no dispute was opened and no statement was sent; I will take no action unless you instruct otherwise.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

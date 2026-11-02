@@ -1,0 +1,22 @@
+{
+  "payload_sha256": {
+    "README.md": "3bb579d68223ca2acaaa90d2bbf853d4439272bdbe4c3b78ee3cd0aa2e4b0dca",
+    "evidence/hw6-final-audit.json": "d0342d5ce65781fa69932798b6057e5b67065410306c38b5ba84032b0de03f2f",
+    "evidence/hw6-results.md": "a2c769b6c45685d6d29b39b364ce69c5f08fe1e98079a0902d42d9c6fd20a450",
+    "scenarios/s1-d12-wrong-account.json": "7e83456f8674bd44782a635d11547a44a60da7b6717a1646dafe4ffdf0a9f655",
+    "scenarios/s3-d29-opaque-result.json": "02d103d3c464fb07db6a49e10225a4d9bba6e4ab110e98e11174d0110c0a863b",
+    "scripts/audit_hw6.py": "913ecfe422812d548b3b7e101b6fcd8d9bc24c9640e8c0a9889b2cb7ddfad038",
+    "scripts/audit_l07.py": "dd7f98c862b62dca03f305fbf3103af1a2d45ab69536722f23693da95622dc92",
+    "tool-call-testing-policy-template.md": "15d9b2efa80479ad0bedd1a1aae357d11bdb23522ab205993857d79501308893",
+    "tool-call-testing-policy-template.pdf": "e076e6fc5be981ba3d00a8f98b1069689fb88ae2748944dbf66b3b263f399d3e",
+    "tool-call-testing-policy.md": "0e3f873cf8c81fb369fd1d81206f51479d0c87a0c413be53a9589a9d61c4eda2",
+    "tool-call-testing-policy.pdf": "55c509e0657590b047d3986da7a4aa2430c84fc190382f253e2d4c1f2d99152b"
+  },
+  "backup": "evidence/hw6-docs-backup-20261102T102202468701",
+  "model_calls_made": false,
+  "live_commands_repeated": false,
+  "metadata_only_changes": [
+    "S1 title: step 4",
+    "S3 level: [1]"
+  ]
+}

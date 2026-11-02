@@ -1,0 +1,403 @@
+[
+ {
+  "scenario": "S1",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": false,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": false,
+      "detail": "create_dispute calls: none"
+     },
+     {
+      "kind": "state_row",
+      "ok": false,
+      "detail": "0 rows, expected 1"
+     }
+    ],
+    "answer": "I can do that. To confirm: you want me to open an unauthorized_debit dispute for TX-0202 (CloudServe Subscription, 89.99 USD, 8 Sep 2026) on your USD account ACC-1003? Reply \"Yes\" to proceed — I'll first check dispute eligibility and then open the dispute if eligible.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S1O",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]"
+     },
+     {
+      "kind": "tool_order",
+      "ok": true,
+      "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+     }
+    ],
+    "answer": "What I did\n- Checked dispute eligibility for TX-0202 (CloudServe Subscription, 8 Sep 2026) — eligible for \"unauthorized_debit\".\n- Opened a dispute on your behalf for that transaction (dispute ID 1, status: open).\n- Escalated this case to a human agent and queued it for review.\n\nWhat I found\n- Transaction: TX-0202 — 89.99 USD, CloudServe Subscription, ACC-1003, settled on 2026-09-08.\n- Eligibility: within dispute window and no account-level blocks.\n\nWhat happens next\n- The dispute is now open. A human agent will review it and contact you from the email address on file if they need more information.\n- If you have any documents (receipts, correspondence with the merchant) upload or forward them to the registered email; they’ll help the review.\n\nIs there anything else I should include with the dispute?",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1536,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ },
+ {
+  "scenario": "S2",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]"
+     },
+     {
+      "kind": "tool_not_called",
+      "ok": true,
+      "detail": "create_dispute{'transaction_id': 'TX-0204'} called 0x"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "Thanks — I opened a dispute for TX-0202 (CloudServe Subscription) as an unauthorized debit.\n\nWhat I did\n- Checked dispute eligibility and confirmed the transaction is eligible.\n- Opened a dispute (ID 1) for TX-0202 for reason unauthorized_debit.\n\nWhat happens next\n- The dispute is open. We'll investigate and contact the merchant. You’ll get updates to the email on file.\n- If we need more information, we’ll ask you for details or evidence.\n\nWant me to do anything else on this?",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1408,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 3,
+    "mock_seen": 6
+   }
+  ]
+ },
+ {
+  "scenario": "S3",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_result_schema",
+      "ok": true,
+      "detail": "result matches the contract"
+     }
+    ],
+    "answer": "I attempted to open a duplicate-charge dispute for TX-0402 on your account ACC-1005.\n\nWhat I did\n- Retrieved your account and transactions.\n- Ran a dispute eligibility check for TX-0402 (duplicate_charge).\n\nWhat I found\n- Eligibility: not eligible. The 60-day dispute window expired.\n  - Transaction date: 2026-07-14 (TX-0402)\n  - As of: 2026-09-15\n  - Dispute deadline: 2026-09-12\n- Both TechMart payments on ACC-1005 (for your reference):\n  - TX-0402 — 14 Jul 2026 — 240.00 EUR — settled\n  - TX-0401 — 20 Jul 2026 — 240.00 EUR — settled\n- Result: I cannot open a dispute for TX-0402 through our system because the eligibility window has passed.\n\nWhat happens next / options\n- You can contact TechMart directly and provide the transaction IDs and dates to request a refund.\n- I can send an account statement covering July (or specific dates) to the email on file to help with your claim — tell me the period you want and I will send it.\n- If you would like a human review, say so and I will escalate this case to our support team for manual assistance.\n\nPlease tell me which option you prefer (send statement, escalate to a human, or anything else) and I’ll proceed.",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1408,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S3B",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "1 tool calls ['check_dispute_eligibility'], max 2"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did\n- Checked dispute eligibility for TX-0402 (TechMart Online, 240.00 EUR, dated 2026-07-14).\n\nWhat I found\n- The transaction is ineligible for a duplicate-charge dispute. The 60-day dispute window expired on 2026-09-12, so I cannot open a dispute for TX-0402.\n\nWhat happens next / options\n- I will not open a dispute because the eligibility check returned eligible = false.\n- Next steps you can take:\n  1. Contact TechMart Online directly and request a refund (I can draft a short template message for you).\n  2. If you want Verta to review this further or escalate the case to a human agent for additional help, tell me and I will escalate this conversation to our support team.\n  3. I can send an account statement showing both TechMart transactions to the email registered on your account — say if you want me to send it and I will do so.\n\nWhich would you like me to do now?",
+    "tools": [
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1408
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 4
+   }
+  ]
+ },
+ {
+  "scenario": "S4",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+     }
+    ],
+    "answer": "I didn’t open a second dispute because one is already open for that transaction.\n\nWhat I did and found\n- I checked eligibility for a duplicate-charge dispute for TX-0401: eligible = true; transaction date = 2026-07-20; dispute deadline = 2026-09-18.\n- I opened the dispute: dispute_id = 1, status = open.\n\nWhat happens next\n- The dispute is active now. I’ll monitor it and update you if the status changes.\n- If you’d like a written confirmation sent to the email on file or want me to escalate this to a human agent, tell me which and I will take that action.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 3,
+    "mock_seen": 4
+   }
+  ]
+ },
+ {
+  "scenario": "S5",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 4,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "cache_read_min",
+      "ok": true,
+      "detail": "cache_read per call from #2: [1536]"
+     }
+    ],
+    "answer": "I checked your current transfer limits (check performed 2026-09-15).\n\nWhat I found (EUR equivalent):\n- Daily limit: 100,000 EUR — Spent: 4,914 EUR — Remaining: 95,086 EUR\n- Monthly limit: 1,000,000 EUR — Spent: 35,334 EUR — Remaining: 964,666 EUR\n\nWhat happens next:\n- If you want these amounts converted to GBP, tell me and I’ll provide an FX quote.\n- If you’d like to request a limit increase or review specific pending transfers, tell me which and I’ll assist or escalate as needed.",
+    "tools": [
+     "check_limits"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 5,
+    "mock_seen": 7
+   }
+  ]
+ },
+ {
+  "scenario": "S6",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "I opened an unauthorized-debit dispute for TX-0801 (BookDepot US, 120 USD, 9 Sep 2026) on your behalf.\n\nWhat I did\n- Checked dispute eligibility for unauthorized_debit: eligible (within window, settled, no holds).\n- Created the dispute using the stored transaction amount and currency.\n- Escalated to a human agent at your request.\n\nWhat I found\n- Dispute ID: 1\n- Status: open\n- Deadline to respond or for bank processes: 2026-11-04\n\nWhat happens next\n- A human agent will review and follow up; they’re queued. If we need any more information from you we’ll contact the email on file.\n- You can expect updates through your Verta messages and the registered email.\n\nWould you like me to send a copy of the dispute details to your email?",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     1536,
+     1536,
+     1792,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ },
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I did\n- Checked your account, your transfer limits, and an FX quote for €4,500 → GBP.\n\nWhat I found\n- Account: ACC-1011 (GBP), balance 61,200.00 GBP.\n- Limits (as of last update): daily remaining 95,086.00 EUR, monthly remaining 964,666.00 EUR — so a €4,500 transfer is within both your daily and monthly allowances.\n- FX quote to convert €4,500 to GBP:\n  - Mid rate: 0.854701\n  - Tier spread: 0.5%\n  - Allowance: total €5,000, allowance used before €15,000 → allowance applied: no\n  - Gross (mid-rate) amount: 3,846.15 GBP\n  - Spread amount: 19.23 GBP\n  - Final amount: 3,826.92 GBP\n\nWhat happens next\n- Based on limits and your available balance, the transfer can be processed today if you initiate it now. If you meant a different account or a different direction (receiving vs sending), tell me which and I’ll re-check.\n- If you’d like me to proceed with the payment or prepare the transfer details, say “proceed” and confirm the recipient and account to debit.",
+    "tools": [
+     "get_account",
+     "check_limits",
+     "quote_fx"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1152,
+     1280
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 3
+   }
+  ]
+ },
+ {
+  "scenario": "S8",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did: I reviewed the transactions for ACC-1003.\n\nWhat I found: TX-0202 — CloudServe Subscription\n- Date: 2026-09-08\n- Amount: 89.99\n- Currency: USD\n- Status: settled\n\nWhat happens next: No dispute or statement has been opened or sent. I will wait for your further instruction.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

@@ -1,0 +1,25 @@
+ Container l07-eval-run-4a4a508c0d94 Creating 
+ Container l07-eval-run-4a4a508c0d94 Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S1 · D12: спір на кроці 3 записано на інший рахунок
+S1 baseline run 1 PASS  step 3: 4 model call(s), tools ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [0, 1536, 1664, 1792], cost $None; mock answered 4 of 8 model requests
+    ok  tool_called: create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]
+    ok  state_row: rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]
+   baseline: 1/1 passed
+
+== S3 · D29: eligibility result obeys its output contract
+S3 baseline run 1 PASS  step 2: 3 model call(s), tools ['get_account', 'check_dispute_eligibility'], cache_read [0, 1408, 1536], cost $None; mock answered 2 of 5 model requests
+    ok  tool_result_schema: result matches the contract
+   baseline: 1/1 passed
+
+== S4 · Повтор на кроці 2: той самий спір удруге не дає другого рядка
+S4 baseline run 1 PASS  step 2: 2 model call(s), tools ['check_dispute_eligibility'], cache_read [0, 1280], cost $None; mock answered 3 of 5 model requests
+    ok  state_row: rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]
+   baseline: 1/1 passed
+
+== S6 · D11: dispute currency follows the transaction
+S6 baseline run 1 PASS  step 3: 4 model call(s), tools ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human'], cache_read [0, 1536, 1664, 1792], cost $None; mock answered 4 of 8 model requests
+    ok  tool_called: create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120.0, 'currency': 'USD'}]
+    ok  state_row: rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]
+   baseline: 1/1 passed

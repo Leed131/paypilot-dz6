@@ -1,0 +1,158 @@
+[
+ {
+  "scenario": "S1",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "I opened a dispute for TX-0202 (CloudServe Subscription, 89.99 USD on 2026-09-08) as an unauthorized debit.\n\nWhat I did\n- Checked the transaction: TX-0202 is on ACC-1003, settled on 2026-09-08 for 89.99 USD.\n- Confirmed the transaction is eligible for dispute (unauthorized_debit) and within the dispute window.\n- Opened the dispute for 89.99 USD — dispute ID 1, status: open.\n- Escalated this case to a human agent and queued it for review.\n\nWhat happens next\n- We'll notify the merchant and begin the investigation. The dispute team may contact you for any supporting documents or additional details.\n- You'll get updates by the secure message center and to the email registered on your account.\n\nIf you have any evidence (e.g., merchant emails, screenshots, or confirmation showing you did not authorize this charge), please reply here and I will attach it to the dispute.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1536,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ },
+ {
+  "scenario": "S3",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_result_schema",
+      "ok": true,
+      "detail": "result matches the contract"
+     }
+    ],
+    "answer": "What I did\n- Retrieved your account (ACC-1005) and checked dispute eligibility for TX-0402 (duplicate_charge).\n\nWhat I found\n- TX-0402 (TechMart Online) — 240.00 EUR on 2026-07-14.\n- The dispute is ineligible: the 60-day dispute window expired. The eligibility check shows:\n  - tx_date: 2026-07-14\n  - as_of: 2026-09-15\n  - deadline: 2026-09-12\n  - check result: window = \"fail: window of 60 days expired on 2026-09-12\"\n- Because of this, I cannot open a duplicate-charge dispute for TX-0402.\n\nWhat happens next / options\n- Contact TechMart directly to request a refund for the duplicate charge (I can draft a short message you can send).\n- I can escalate this to a human specialist for a manual review/exception request — tell me if you want me to escalate and I will open that for you.\n- I can also send a statement showing both TechMart transactions to the email on file if that would help — tell me if you want that sent.\n\nWhich option would you like me to take?",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1408,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S4",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+     }
+    ],
+    "answer": "I already opened the dispute for TX-0401.\n\nWhat I did\n- Checked dispute eligibility for reason duplicate_charge — result: eligible.\n- Created the dispute.\n\nWhat I found\n- Dispute ID: 1\n- Status: open\n\nWhat happens next\n- We will monitor the dispute and send updates to the email address on file.\n- I will not open a second dispute for the same transaction. If you’d like to add supporting documents or ask that a human agent review this case, tell me and I will escalate.",
+    "tools": [
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     0,
+     1280
+    ],
+    "cost_usd": null,
+    "mock_answered": 3,
+    "mock_seen": 5
+   }
+  ]
+ },
+ {
+  "scenario": "S6",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120.0, 'currency': 'USD'}]"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+     }
+    ],
+    "answer": "What I did\n- Checked dispute eligibility for TX-0801 (unauthorized_debit) — eligible.\n- Opened a dispute using the transaction's stored amount and currency (120.00 USD). Dispute ID: 1, status: open.\n- Escalated your request to a human agent; escalation queued.\n\nWhat happens next\n- The dispute is open and will be processed. If the merchant responds we will update the dispute status and notify you.\n- A human support agent has been assigned and will follow up from the email address registered to your account if they need further information.\n\nIf you need anything else about this dispute, tell me.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1536,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ }
+]

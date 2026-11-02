@@ -1,0 +1,26 @@
+x-eval: &eval
+  image: python:3.12-slim
+  working_dir: /l07
+  entrypoint: ["python", "run_step.py"]
+  command: []
+  volumes:
+    - .:/l07
+  environment:
+    PYTHONDONTWRITEBYTECODE: "1"
+    SERVICE_URL: ${EVAL_STAND_URL:-http://host.docker.internal:8000}
+    MOCK_URL: ${EVAL_MOCK_URL:-http://host.docker.internal:1080}
+  extra_hosts:
+    - host.docker.internal:host-gateway
+
+services:
+  eval:
+    <<: *eval
+
+  llm-mock:
+    image: mockserver/mockserver:8.0.0
+    ports: ["1080:1080"]
+    environment:
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /mock/expectations.json
+      MOCKSERVER_LOG_LEVEL: WARN
+    volumes:
+      - ./mock:/mock:ro

@@ -1,0 +1,76 @@
+{
+  "id": "S1O",
+  "title": "Eligibility check precedes dispute creation",
+  "customer_id": "CUS-0002",
+  "gate": "release",
+  "runs": 5,
+  "conditions": {
+    "baseline": {
+      "profile": "clean",
+      "defects": ""
+    }
+  },
+  "turns": [
+    {
+      "user": "Which accounts do I have for this dispute review?",
+      "model": [
+        {
+          "tool_calls": [
+            {
+              "id": "call_s1o_acc",
+              "name": "get_account",
+              "arguments": {}
+            }
+          ]
+        },
+        {
+          "text": "You have two accounts: ACC-1002 in EUR and ACC-1003 in USD."
+        }
+      ]
+    },
+    {
+      "user": "For this review, find the unrecognized CloudServe charge of 89.99 USD on ACC-1003 from 8 September 2026.",
+      "model": [
+        {
+          "tool_calls": [
+            {
+              "id": "call_s1o_tx",
+              "name": "get_transactions",
+              "arguments": {
+                "account_id": "ACC-1003"
+              }
+            }
+          ]
+        },
+        {
+          "text": "I can see it on ACC-1003: TX-0202, 8 September 2026, 89.99 USD, CloudServe Subscription."
+        }
+      ]
+    },
+    {
+      "user": "For that CloudServe payment, please open an unauthorized-debit dispute now.",
+      "live": true
+    }
+  ],
+  "assertions": [
+    {
+      "kind": "tool_called",
+      "tool": "create_dispute",
+      "args": {
+        "transaction_id": "TX-0202"
+      }
+    },
+    {
+      "kind": "tool_order",
+      "before": [
+        "check_dispute_eligibility",
+        "create_dispute"
+      ]
+    }
+  ],
+  "dimension": "call order",
+  "level": [
+    1,
+    3
+  ]
+}

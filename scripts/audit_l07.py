@@ -25,6 +25,8 @@ def spans(tree):
 
 sessions = []
 for report in sorted((root / 'reports').rglob('results.json')):
+    if report.relative_to(root / 'reports').parts[0].startswith('hw6-'):
+        continue  # Versioned HW6 runs are audited separately by audit_hw6.py.
     trace_file = report.parent / 'traces.json'
     trees = json.loads(trace_file.read_text())['traces']
     state_file = report.parent / 'disputes.json'
@@ -77,6 +79,8 @@ for report in sorted((root / 'reports').rglob('results.json')):
 assert len({s['request_id'] for s in sessions}) == len(sessions), 'Duplicate live requests'
 errors = []
 for log in sorted((root / 'reports').rglob('terminal.log')):
+    if log.relative_to(root / 'reports').parts[0].startswith('hw6-'):
+        continue  # Versioned HW6 runs are audited separately by audit_hw6.py.
     text = log.read_text()
     lines = [line for line in text.splitlines() if 'ERROR:' in line]
     if lines:

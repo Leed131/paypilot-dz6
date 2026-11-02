@@ -1,0 +1,7 @@
+ Container l07-eval-run-e735e5983b84 Creating 
+ Container l07-eval-run-e735e5983b84 Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S7 · D13: transfer advice uses limits, not transaction history
+ERROR: POST http://host.docker.internal:8000/chat -> 500: Internal Server Error
+

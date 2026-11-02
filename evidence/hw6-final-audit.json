@@ -1,0 +1,457 @@
+{
+  "scope": "Offline audit of final 17 completed steps; no model calls. State checks are the recorded native-runner verdicts, not independent replay against the final table snapshot.",
+  "scenarios": 10,
+  "original_scenarios": [
+    "S6",
+    "S7",
+    "S8"
+  ],
+  "expectations": 32,
+  "daily_baseline": "4/4 PASS",
+  "daily_technical_errors": 0,
+  "all_baseline": "10/10 PASS",
+  "final_completed_steps": 17,
+  "daily_expected_defects_detected": [
+    "D12",
+    "D29",
+    "D11"
+  ],
+  "metadata_only_changes": [
+    "S1 title names step 4",
+    "S3 level corrected to exact contract [1]"
+  ],
+  "rows": [
+    {
+      "stage": "daily",
+      "scenario": "S1",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "17ad8d7b8f614539",
+      "live_step": 4,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S1",
+      "condition": "defect",
+      "passed": false,
+      "request_id": "1f55c516bb5a472e",
+      "live_step": 4,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "state_row",
+          "ok": false,
+          "detail": "account_id='ACC-1002', expected 'ACC-1003'"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S3",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "5bcaf73071724b6a",
+      "live_step": 2,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_result_schema",
+          "ok": true,
+          "detail": "result matches the contract"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S3",
+      "condition": "defect",
+      "passed": false,
+      "request_id": "06afdad95d164277",
+      "live_step": 2,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_result_schema",
+          "ok": false,
+          "detail": "eligible: expected boolean, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}; checks: expected object, got {\"ok\": true, \"r\": \"N\", \"c\": [3], \"w\": 60}"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S4",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "d2acba01ee394fd0",
+      "live_step": 2,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S6",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "12cb8d4fe67d4209",
+      "live_step": 3,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit'}]"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S6",
+      "condition": "defect",
+      "passed": false,
+      "request_id": "d2b6bd574326498f",
+      "live_step": 3,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit'}]"
+        },
+        {
+          "kind": "state_row",
+          "ok": false,
+          "detail": "currency='EUR', expected 'USD'"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/daily/results.json",
+      "report_sha256": "299bdaf7579a78401d521c03b7f1e8bd3370176797f2172e48cc309b82eb6b96",
+      "trace_sha256": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S1",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "a0d8aa44b7a14ca9",
+      "live_step": 4,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S1O",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "06f7e7688bc3448d",
+      "live_step": 3,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit', 'amount': 89.99, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "tool_order",
+          "ok": true,
+          "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S2",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "458a15acf1804ea0",
+      "live_step": 3,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]"
+        },
+        {
+          "kind": "tool_not_called",
+          "ok": true,
+          "detail": "create_dispute{'transaction_id': 'TX-0204'} called 0x"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0202', 'account_id': 'ACC-1003', 'amount': 89.99, 'currency': 'USD'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S3",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "eb72dd2cea474633",
+      "live_step": 2,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_result_schema",
+          "ok": true,
+          "detail": "result matches the contract"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S3B",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "cf2a5c27a4d4438e",
+      "live_step": 2,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_call_count",
+          "ok": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "max_tool_calls",
+          "ok": true,
+          "detail": "2 tool calls ['get_account', 'check_dispute_eligibility'], max 2"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows []"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S4",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "c4a243de694a47e5",
+      "live_step": 2,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0401', 'account_id': 'ACC-1005', 'amount': 240.0, 'currency': 'EUR'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S5",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "0bd71176d72440c3",
+      "live_step": 4,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "cache_read_min",
+          "ok": true,
+          "detail": "cache_read per call from #2: [1664]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S6",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "d713ac45737c41f5",
+      "live_step": 3,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_called",
+          "ok": true,
+          "detail": "create_dispute calls: [{'transaction_id': 'TX-0801', 'reason_code': 'unauthorized_debit', 'amount': 120, 'currency': 'USD'}]"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows [{'transaction_id': 'TX-0801', 'account_id': 'ACC-1009', 'amount': 120.0, 'currency': 'USD'}]"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S7",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "72fb2a7ec1574194",
+      "live_step": 1,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_sequence",
+          "ok": true,
+          "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+        },
+        {
+          "kind": "tool_call_count",
+          "ok": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "ok": true,
+          "detail": "send_statement called 0x, expected 0"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S8",
+      "condition": "baseline",
+      "passed": true,
+      "request_id": "adfb3dfb7ef64218",
+      "live_step": 3,
+      "models": [
+        "gpt-5-mini-2025-08-07"
+      ],
+      "verdicts": [
+        {
+          "kind": "tool_call_count",
+          "ok": true,
+          "detail": "create_dispute called 0x, expected 0"
+        },
+        {
+          "kind": "tool_call_count",
+          "ok": true,
+          "detail": "send_statement called 0x, expected 0"
+        },
+        {
+          "kind": "state_row",
+          "ok": true,
+          "detail": "rows []"
+        }
+      ],
+      "report": "reports/hw6-v3/final-verification-timeout60/all-baseline/results.json",
+      "report_sha256": "3a5440e157e33f879c13b0f5dd1213772f4f979f3080f8bc046af3e549f7eae8",
+      "trace_sha256": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source_archive": "l07-lab-results-20261101T185338.zip",
+  "source_sha256": "3efebc7baedccfc9a0c5b27b4b8fc9844f70e74895b0fc99d310caeb2893f221",
+  "status": "laboratory draft; not homework-complete",
+  "model_calls_during_audit": 0,
+  "files": {
+    "README.md": "6de7d6c2d6dac04b05d72752302dcad78417eaa3e0387214d1b463aac456a7c3",
+    "evidence/l07-audit.json": "5fec3c070a3939e2c15dcd1f2141faa42547da67138297756f73e4ca874e2605",
+    "evidence/l07-laboratory-results.md": "a126c9b68bb7c28f7084177078e5ea5b3cbb005fb14d371101dae84de859aa5a",
+    "scripts/audit_l07.py": "75c080ffa2e499ab8147af609060c7d6eb549813bf57758fe5c8a5d8298ea291",
+    "tool-call-testing-policy.md": "f69c68252b384b8202e3fd91c3e09480b6372535481afd9a8f9747c451f1b195",
+    "tool-call-testing-policy.pdf": "765476d97f0c0c332ff915652a66b6449275b30e0565cbb2451ae0dbdb7da6a5"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "proxy": {
+    "status": "running",
+    "oom_killed": false,
+    "health": "healthy"
+  },
+  "proxy_exception_types": {
+    "shaded_package.io.netty.handler.timeout.ReadTimeoutException": 1
+  },
+  "recorded_response_statuses": {
+    "200": 3
+  }
+}

@@ -1,0 +1,50 @@
+[
+ {
+  "scenario": "S7",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 1,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_sequence",
+      "ok": true,
+      "detail": "tools ['get_account', 'check_limits', 'quote_fx']"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     }
+    ],
+    "answer": "What I checked\n- I pulled your account and limits and ran an FX quote for a €4,500 → GBP conversion.\n\nWhat I found\n- Account: ACC-1011 (GBP), balance £61,200.00.\n- Limits (as-of 2026-09-15): daily remaining €95,086.00 and monthly remaining €964,666.00 — a €4,500 transfer is within both limits.\n- FX quote (€4,500 → GBP):\n  - Mid rate: 0.854701\n  - Tier spread: 0.5% (no free allowance applied; allowance_total €5,000 has already been used)\n  - Gross at mid rate: £3,846.15\n  - Spread amount: £19.23\n  - Final amount you would receive: £3,826.92\n\nWhat happens next / recommendation\n- From your balance and limits, a €4,500 transfer is allowed today.\n- I cannot confirm same‑day processing here because settlement timing depends on the payment rail and counterparty (SEPA, SWIFT, payer bank cutoffs). That information isn’t available in these tools.\n- If you’d like me to proceed (or you want an estimated processing time), tell me whether this will debit ACC-1011 or another account and whether the transfer is SEPA/BIC/SWIFT — I can then advise next steps or escalate to a human if you prefer.",
+    "tools": [
+     "get_account",
+     "check_limits",
+     "quote_fx"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1152,
+     1280,
+     1408
+    ],
+    "cost_usd": null,
+    "mock_answered": 0,
+    "mock_seen": 4
+   }
+  ]
+ }
+]
