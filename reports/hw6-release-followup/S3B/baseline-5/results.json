@@ -1,0 +1,48 @@
+[
+ {
+  "scenario": "S3B",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "2 tool calls ['get_account', 'check_dispute_eligibility'], max 2"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did\n- Looked up account ACC-1005 and ran a dispute-eligibility check for TX-0402 (TechMart Online).\n\nWhat I found\n- TX-0402 — TechMart Online, 14 Jul 2026, 240.00 EUR, settled.\n- Eligibility result: ineligible for dispute. The 60-day dispute window expired on 2026-09-12 (as-of check: 2026-09-15). The other checks (reason_code, transaction status, compliance hold) passed; the window check failed.\n\nWhat happens next\n- I cannot open a duplicate-charge dispute for TX-0402 because the dispute window has passed.\n- Options I can do for you:\n  1) Provide a short template you can send to TechMart (including TX-0401 and TX-0402 details) to request a refund.\n  2) Send an official account statement showing both TechMart transactions to the email address registered on the account (I will only send to the registered address). Tell me if you want this and which period (default is last month).\n  3) If you want a human review/exception request, I can escalate this to our support team — say “please escalate” and I will open that escalation.\n\nPlease tell me which option you prefer (or ask for the merchant message template) and I’ll proceed.",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     1408,
+     1408,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

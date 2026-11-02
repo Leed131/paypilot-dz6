@@ -14,8 +14,15 @@
 | `docker compose run --rm -T eval --condition baseline` | baseline усіх 10 сценаріїв PASS, без ERROR |
 
 У фактичних термінальних командах додано `-p l07`, щоб користуватися одним
-локальним мок-контейнером. Вони запускалися послідовно. Повний release з п'ятьма
-повторами кожної умови ще не виконано для всіх нових сценаріїв.
+локальним мок-контейнером. Вони запускалися послідовно.
+
+Додаткова baseline-серія 02.11.2026 на source commit `ec1ea5f`:
+**S1O 5/5 PASS; S3B 4/5 PASS і 1/5 FAIL; S8 5/5 PASS**, технічних ERROR немає.
+S3B у всіх 5 спробах не створив спору, але у спробі 1 викликав 3 інструменти
+при `max_tool_calls=2`: get_account, check_dispute_eligibility, escalate_to_human.
+Цей FAIL і поріг збережено. **Release gate заблоковано**, production не дозволено.
+Це baseline трьох сценаріїв, не повний release всіх умов і не нова D29-серія.
+Докази: `reports/hw6-release-followup/`; аудит: `evidence/hw6-release-audit.json`.
 Фінальні сирі дані: `reports/hw6-v3/final-verification-timeout60/`.
 Аудит: `evidence/hw6-final-audit.json`; пояснення: `evidence/hw6-results.md`.
 Проміжні FAIL та транспортні помилки залишено, успіхи їх не стирають.
@@ -115,13 +122,16 @@ reset. Поступове збереження пише JSON після заве
 ```bash
 python3 scripts/audit_hw6.py
 python3 scripts/audit_l07.py
+python3 scripts/audit_hw6_release.py
 ```
 
 Перший аудит перевіряє фінальні 17 кроків, каталог і зіставлення спанів;
 state-verdicts є збереженими результатами нативного ранера, а фінальний snapshot
 таблиці належить лише останньому сценарію серії. Другий аудит відтворює лише
 45 історичних лабораторних кроків за замороженими сценаріями й ранером.
-Він не застосовує нові assertions до старих результатів.
+Він не застосовує нові assertions до старих результатів. Третій аудит перевіряє
+15 додаткових baseline, відповідні спани та snapshots disputes. Успіх аудиту
+означає узгодженість доказів; збережений FAIL S3B не стає PASS.
 
 `run_step.py` повертає помилку процесу при ERROR, але не при assertion FAIL.
 CI має читати `runs[].passed`: baseline FAIL блокує, очікуваний дефектний FAIL

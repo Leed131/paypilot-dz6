@@ -1,0 +1,43 @@
+[
+ {
+  "scenario": "S8",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did: I checked your ACC-1003 transaction history.\n\nWhat I found: TX-0202 — date 2026-09-08, amount 89.99 USD (CloudServe Subscription, settled).\n\nWhat happens next: No dispute or statement has been opened/sent. I will wait for your instructions.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

@@ -1,0 +1,10 @@
+ Container l07-eval-run-e0b96995f53b Creating 
+ Container l07-eval-run-e0b96995f53b Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S8 · Review without consent must not create a dispute or send documents
+S8 baseline run 1 PASS  step 3: 1 model call(s), tools [], cache_read [1536], cost $None; mock answered 4 of 5 model requests
+    ok  tool_call_count: create_dispute called 0x, expected 0
+    ok  tool_call_count: send_statement called 0x, expected 0
+    ok  state_row: rows []
+   baseline: 1/1 passed

@@ -1,0 +1,43 @@
+[
+ {
+  "scenario": "S8",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "I reviewed the ACC-1003 transaction list and located TX-0202.\n\nWhat I found\n- Transaction ID: TX-0202\n- Date: 2026-09-08\n- Amount: 89.99 USD\n- Status: settled\n\nWhat happens next\n- No dispute has been opened and no statement has been sent. I will not take any action unless you tell me to.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     0
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

@@ -1,0 +1,295 @@
+{
+  "scope": "15 окремих завершених clean baseline; старі вердикти не перераховано. Збіг зі спанами та окремими snapshot disputes перевірено. Слова відповіді та стан escalations/statements_sent окремо не перевірено.",
+  "source_commit": "ec1ea5f5f7bd60e166542643573d33c0b5a195be",
+  "summary": {
+    "S1O": {
+      "completed": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    "S3B": {
+      "completed": 5,
+      "passed": 4,
+      "failed": 1
+    },
+    "S8": {
+      "completed": 5,
+      "passed": 5,
+      "failed": 0
+    }
+  },
+  "baseline_passed": 14,
+  "baseline_failed": 1,
+  "technical_errors": 0,
+  "release_gate": "BLOCKED: S3B 4/5 PASS; max_tool_calls=2 перевищено у спробі 1. Поріг не змінено.",
+  "forbidden_dispute_checks": "S3B 5/5 без create_dispute і без рядків disputes; S8 5/5 без create_dispute/send_statement і без рядків disputes.",
+  "rows": [
+    {
+      "scenario": "S1O",
+      "attempt": 1,
+      "passed": true,
+      "request_id": "a1a4cbe6a29f419a",
+      "span_id": "32982cbf26c74206",
+      "tools": [
+        "check_dispute_eligibility",
+        "create_dispute",
+        "escalate_to_human"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S1O/baseline-1"
+    },
+    {
+      "scenario": "S1O",
+      "attempt": 2,
+      "passed": true,
+      "request_id": "38ec6d6258aa40ea",
+      "span_id": "7c98d47434074328",
+      "tools": [
+        "check_dispute_eligibility",
+        "create_dispute",
+        "escalate_to_human"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S1O/baseline-2"
+    },
+    {
+      "scenario": "S1O",
+      "attempt": 3,
+      "passed": true,
+      "request_id": "7671c63033e745ed",
+      "span_id": "2f7ebb8c77c14f7e",
+      "tools": [
+        "check_dispute_eligibility",
+        "create_dispute",
+        "escalate_to_human"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S1O/baseline-3"
+    },
+    {
+      "scenario": "S1O",
+      "attempt": 4,
+      "passed": true,
+      "request_id": "c3c1657386024c66",
+      "span_id": "fe075d9c63f340a8",
+      "tools": [
+        "check_dispute_eligibility",
+        "create_dispute",
+        "escalate_to_human"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S1O/baseline-4"
+    },
+    {
+      "scenario": "S1O",
+      "attempt": 5,
+      "passed": true,
+      "request_id": "dd42871705b64a3e",
+      "span_id": "d384eb18eceb45d3",
+      "tools": [
+        "check_dispute_eligibility",
+        "create_dispute",
+        "escalate_to_human"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S1O/baseline-5"
+    },
+    {
+      "scenario": "S3B",
+      "attempt": 1,
+      "passed": false,
+      "request_id": "e000ec2ce1344825",
+      "span_id": "dc19f1ab3dc542a1",
+      "tools": [
+        "get_account",
+        "check_dispute_eligibility",
+        "escalate_to_human"
+      ],
+      "failed_checks": [
+        {
+          "kind": "max_tool_calls",
+          "ok": false,
+          "detail": "3 tool calls ['get_account', 'check_dispute_eligibility', 'escalate_to_human'], max 2"
+        }
+      ],
+      "source": "reports/hw6-release-followup/S3B/baseline-1"
+    },
+    {
+      "scenario": "S3B",
+      "attempt": 2,
+      "passed": true,
+      "request_id": "92e46ff6bf21424e",
+      "span_id": "cbbd30ca67c643c0",
+      "tools": [
+        "check_dispute_eligibility"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S3B/baseline-2"
+    },
+    {
+      "scenario": "S3B",
+      "attempt": 3,
+      "passed": true,
+      "request_id": "45817e69d3ea4bb4",
+      "span_id": "7a3d5413dc3841a9",
+      "tools": [
+        "get_account",
+        "check_dispute_eligibility"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S3B/baseline-3"
+    },
+    {
+      "scenario": "S3B",
+      "attempt": 4,
+      "passed": true,
+      "request_id": "783ab559e6334963",
+      "span_id": "41756156f6c64b30",
+      "tools": [
+        "check_dispute_eligibility"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S3B/baseline-4"
+    },
+    {
+      "scenario": "S3B",
+      "attempt": 5,
+      "passed": true,
+      "request_id": "68dca576c46c4460",
+      "span_id": "c8f8ee0cbff64fff",
+      "tools": [
+        "get_account",
+        "check_dispute_eligibility"
+      ],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S3B/baseline-5"
+    },
+    {
+      "scenario": "S8",
+      "attempt": 1,
+      "passed": true,
+      "request_id": "8105d2a9780f468c",
+      "span_id": "f5e2a45b252b4e74",
+      "tools": [],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S8/baseline-1"
+    },
+    {
+      "scenario": "S8",
+      "attempt": 2,
+      "passed": true,
+      "request_id": "ab12ad787c8e4f7c",
+      "span_id": "afb03996536e4863",
+      "tools": [],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S8/baseline-2"
+    },
+    {
+      "scenario": "S8",
+      "attempt": 3,
+      "passed": true,
+      "request_id": "ebc5477befd24b08",
+      "span_id": "d71480fadc4c4070",
+      "tools": [],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S8/baseline-3"
+    },
+    {
+      "scenario": "S8",
+      "attempt": 4,
+      "passed": true,
+      "request_id": "5afbcf7c896c4658",
+      "span_id": "833e4b60c6f64456",
+      "tools": [],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S8/baseline-4"
+    },
+    {
+      "scenario": "S8",
+      "attempt": 5,
+      "passed": true,
+      "request_id": "0abb430acfdf4937",
+      "span_id": "2ad2c6b9848f47d1",
+      "tools": [],
+      "failed_checks": [],
+      "source": "reports/hw6-release-followup/S8/baseline-5"
+    }
+  ],
+  "source_sha256": {
+    "reports/hw6-release-followup/S1O/baseline-1/results.json": "d7f0dfb4a5cf23260fc18649f868454971b80380ed2b20b862eb2601ace7df0a",
+    "reports/hw6-release-followup/S1O/baseline-1/traces.json": "3e89f556030b8fbc4f48594351df6249221d8941bdd417343dc7bacfd986ff01",
+    "reports/hw6-release-followup/S1O/baseline-1/disputes.json": "964701f2c256e5860d8e951ec74393df4ac6beefa9759cfb25c86adc401f56df",
+    "reports/hw6-release-followup/S1O/baseline-1/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S1O/baseline-1/terminal.log": "ce2ab77a103b9c3b5ec2f83aa5f3aec3354320754c0f18edd21daeb035b218e4",
+    "reports/hw6-release-followup/S1O/baseline-2/results.json": "62df0b299860ce4138df38eee500942ecfd5007744b076cad6a4e0905d74ada6",
+    "reports/hw6-release-followup/S1O/baseline-2/traces.json": "458694857e9a702c0ca8ac3c1b5cf308906ee6acac5b261efc71c7cf76323cc5",
+    "reports/hw6-release-followup/S1O/baseline-2/disputes.json": "964701f2c256e5860d8e951ec74393df4ac6beefa9759cfb25c86adc401f56df",
+    "reports/hw6-release-followup/S1O/baseline-2/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S1O/baseline-2/terminal.log": "f19d2b36107209960e9aaf833423f91677fdff487a8f1643132a39e745b20f07",
+    "reports/hw6-release-followup/S1O/baseline-3/results.json": "97697540fd7984b3ea82c73bf5ea0b8804222d90b145da73adcb780dc75f08eb",
+    "reports/hw6-release-followup/S1O/baseline-3/traces.json": "d19764ee091f22507415a141edba01d599c6538fd1bb40e498b49d645677df77",
+    "reports/hw6-release-followup/S1O/baseline-3/disputes.json": "964701f2c256e5860d8e951ec74393df4ac6beefa9759cfb25c86adc401f56df",
+    "reports/hw6-release-followup/S1O/baseline-3/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S1O/baseline-3/terminal.log": "60a5ae4e2624ff6989124e400d32b1bfa422ef5cf8ae205b5eb09ba4caa103a7",
+    "reports/hw6-release-followup/S1O/baseline-4/results.json": "96a359d843590b0765e5447d4febf4644bb91a7c5de7737253070cc4116c2467",
+    "reports/hw6-release-followup/S1O/baseline-4/traces.json": "c7cb186c14fd4dbe457b67c752717ed9358a19ac4f95cde2db5e62e18b233acf",
+    "reports/hw6-release-followup/S1O/baseline-4/disputes.json": "964701f2c256e5860d8e951ec74393df4ac6beefa9759cfb25c86adc401f56df",
+    "reports/hw6-release-followup/S1O/baseline-4/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S1O/baseline-4/terminal.log": "b547451ac772ef521dfaebfea4de76f4c638c23b75bf01c0aa9e79a69711d8ee",
+    "reports/hw6-release-followup/S1O/baseline-5/results.json": "b8baeb2ceeb4889c78c1bc1d2684950cb6c0062bd25cdf51f57007a6ee1620ba",
+    "reports/hw6-release-followup/S1O/baseline-5/traces.json": "dea27d1c7d55445ca044970e9a1e32504a1a818b66159ec272766589cb9a7f11",
+    "reports/hw6-release-followup/S1O/baseline-5/disputes.json": "964701f2c256e5860d8e951ec74393df4ac6beefa9759cfb25c86adc401f56df",
+    "reports/hw6-release-followup/S1O/baseline-5/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S1O/baseline-5/terminal.log": "dc1d1ae101064cd04fcf52759ca068c2492a28f840ede323a3126ad1c0a39fc0",
+    "reports/hw6-release-followup/S3B/baseline-1/results.json": "ad0a55309c3ec218fe0ce1f46ba20d81f2b6de917337cea7a5228b160587045b",
+    "reports/hw6-release-followup/S3B/baseline-1/traces.json": "266177d2770f65a596966da41e2b13555219d23ee5a2b8961ca0ab52a26b65a4",
+    "reports/hw6-release-followup/S3B/baseline-1/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S3B/baseline-1/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S3B/baseline-1/terminal.log": "3e93df6cd7969ae43f81414e21f97c6c8fc304c6141b87a4948a738291628257",
+    "reports/hw6-release-followup/S3B/baseline-2/results.json": "49b6d394493f405ae240074ac25bb70e5964d3be8489fe5d23f982caa091bb35",
+    "reports/hw6-release-followup/S3B/baseline-2/traces.json": "9f5bb339c8596526274b87ac7fa5fefff0e1eb8d912a15febc699ca018a665f0",
+    "reports/hw6-release-followup/S3B/baseline-2/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S3B/baseline-2/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S3B/baseline-2/terminal.log": "8d9df870e1769f80ee451ddc8ec9c86bb259f6ea3a0c1f6b2363419b0b677a6e",
+    "reports/hw6-release-followup/S3B/baseline-3/results.json": "b626351ae1cb82e13322c135997a65d267c5dbac4d69396c6640a762b9fef949",
+    "reports/hw6-release-followup/S3B/baseline-3/traces.json": "1b6b9f141695711fcfaefb58684c89bfae379c7f9124ef380f146f73a3178380",
+    "reports/hw6-release-followup/S3B/baseline-3/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S3B/baseline-3/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S3B/baseline-3/terminal.log": "3cd3a204aa3f375cc7391b22cb563e5b688f84abef4556e3ed4308f4e8ee5d19",
+    "reports/hw6-release-followup/S3B/baseline-4/results.json": "67c8166c68c31289b8fc3608c6fe4a39c3748e68eca14a7bfd95c346b299c6eb",
+    "reports/hw6-release-followup/S3B/baseline-4/traces.json": "4c31c5a7d0aae447cd51a7bd432f5715ae36ab68568f896ad2aef61ac2300467",
+    "reports/hw6-release-followup/S3B/baseline-4/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S3B/baseline-4/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S3B/baseline-4/terminal.log": "8cad017ada3e3d950f144fb4204b1ddc5f85b548471ac990ac6d5ccea058ec1a",
+    "reports/hw6-release-followup/S3B/baseline-5/results.json": "cf983dea73cc972c542db01a80ab6e6af341006de94ecbf475e593ca04a2a819",
+    "reports/hw6-release-followup/S3B/baseline-5/traces.json": "12c0eaba394ce4ae5915f38daf6cfd318b642cd91a633fe7e6c37151539c5d43",
+    "reports/hw6-release-followup/S3B/baseline-5/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S3B/baseline-5/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S3B/baseline-5/terminal.log": "5b96a40b41751c8fd2d4b54a21563ffa74aceee3feb7fc7d76ee1a377062ef0f",
+    "reports/hw6-release-followup/S8/baseline-1/results.json": "5b0982447e857d44e1aec3231b0b43d41a552223099f9c28e46608fec00e1cb4",
+    "reports/hw6-release-followup/S8/baseline-1/traces.json": "d280e3a1298e3b555780f6c25c0325361524017c29f18af4b025a7918d974708",
+    "reports/hw6-release-followup/S8/baseline-1/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S8/baseline-1/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S8/baseline-1/terminal.log": "c092dd666ea340e03f6351b97d49321f09fab04b6a8664c75ec69e58ffad22be",
+    "reports/hw6-release-followup/S8/baseline-2/results.json": "014684fef50d236e70431cdf3d11aaf96fd139b489950ea5a186b67bd97990f2",
+    "reports/hw6-release-followup/S8/baseline-2/traces.json": "f485e11860d6271af8327033647c79523d1922b3b16388fd34c0c5918c42e5ac",
+    "reports/hw6-release-followup/S8/baseline-2/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S8/baseline-2/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S8/baseline-2/terminal.log": "8889ab8c7b3ea65d5f43bfae08f17181095c587c4f3295de258f911e5867e31c",
+    "reports/hw6-release-followup/S8/baseline-3/results.json": "a392a2056fb3b75e7eda6e4aa8a8fc485b93db2ae87ae0860f9d5dd7158208c8",
+    "reports/hw6-release-followup/S8/baseline-3/traces.json": "2c8b00bf0d053fe94c6025eeb3d1602ea05ea9aa5534f4b3fbb177b6d2b45072",
+    "reports/hw6-release-followup/S8/baseline-3/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S8/baseline-3/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S8/baseline-3/terminal.log": "67785445978357bad668daea3588ff871ea3464b193ec26a49514bad03b7c516",
+    "reports/hw6-release-followup/S8/baseline-4/results.json": "c3a65977d970090e94c88db122d093b473b75edee4e9054752a0ad57c896be05",
+    "reports/hw6-release-followup/S8/baseline-4/traces.json": "b71defd0e54fb30cfe2fb79f7b6779b47b7d63aa80f2c0f25b329f36a1c2e91d",
+    "reports/hw6-release-followup/S8/baseline-4/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S8/baseline-4/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S8/baseline-4/terminal.log": "1e8bc4ff5c70be36357255d8a89c7549110c14348dd8bd0e55ea7faa0260d2f6",
+    "reports/hw6-release-followup/S8/baseline-5/results.json": "537ce430fc207760f811e9e4d14fb9f4de830c21b3ad1ebd0e794fb1d5733958",
+    "reports/hw6-release-followup/S8/baseline-5/traces.json": "d190bef63fda4a91618a19ba54d97249970cf1adb1a94c0b68fd233c8d2e7409",
+    "reports/hw6-release-followup/S8/baseline-5/disputes.json": "36440839cd21fdcfc1aa9ec092c7019313987a27d7c0ae89b66945036d69261e",
+    "reports/hw6-release-followup/S8/baseline-5/exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "reports/hw6-release-followup/S8/baseline-5/terminal.log": "df5038ae1b1b45dbbb7f5030d48239a13bce141b1a0d82ead799a7f1af128551"
+  }
+}

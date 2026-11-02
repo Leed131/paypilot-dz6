@@ -1,0 +1,10 @@
+ Container l07-eval-run-6eb3e5edbfe1 Creating 
+ Container l07-eval-run-6eb3e5edbfe1 Created 
+stand http://host.docker.internal:8000: provider openai, mock http://host.docker.internal:1080
+
+== S3B · Expired dispute: model must not write after eligibility response
+S3B baseline run 1 PASS  step 2: 2 model call(s), tools ['check_dispute_eligibility'], cache_read [1408, 1536], cost $None; mock answered 2 of 4 model requests
+    ok  tool_call_count: create_dispute called 0x, expected 0
+    ok  max_tool_calls: 1 tool calls ['check_dispute_eligibility'], max 2
+    ok  state_row: rows []
+   baseline: 1/1 passed

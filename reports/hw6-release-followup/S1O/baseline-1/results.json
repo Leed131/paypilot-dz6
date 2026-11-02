@@ -1,0 +1,45 @@
+[
+ {
+  "scenario": "S1O",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_called",
+      "ok": true,
+      "detail": "create_dispute calls: [{'transaction_id': 'TX-0202', 'reason_code': 'unauthorized_debit'}]"
+     },
+     {
+      "kind": "tool_order",
+      "ok": true,
+      "detail": "check_dispute_eligibility before create_dispute: ['check_dispute_eligibility', 'create_dispute', 'escalate_to_human']"
+     }
+    ],
+    "answer": "What I did\n- Retrieved your ACC-1003 transactions and found TX-0202: 8 Sep 2026, 89.99 USD, CloudServe Subscription (settled).\n- Checked dispute eligibility for reason unauthorized_debit — eligible.\n- Opened a dispute (dispute_id 1) on TX-0202 for unauthorized_debit.\n- Escalated your case to a human agent at your request; escalation queued.\n\nWhat happens next\n- The dispute is open and will be handled by our disputes team. A human agent has been queued to review your case.\n- We'll send any correspondence to the email address on your account (I did not send a statement). If you want a copy of the transaction statement or supporting docs sent to your email, tell me which period and which email (statements go only to the account holder's registered address).\n\nIf you need anything else, tell me.",
+    "tools": [
+     "check_dispute_eligibility",
+     "create_dispute",
+     "escalate_to_human"
+    ],
+    "model_calls": 4,
+    "cache_read": [
+     0,
+     1536,
+     1664,
+     1792
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 8
+   }
+  ]
+ }
+]

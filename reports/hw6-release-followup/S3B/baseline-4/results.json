@@ -1,0 +1,46 @@
+[
+ {
+  "scenario": "S3B",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "1 tool calls ['check_dispute_eligibility'], max 2"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did\n- I checked dispute eligibility for TX-0402 (TechMart Online, 240.00 EUR, dated 2026-07-14) under reason code \"duplicate_charge.\"\n\nWhat I found\n- The transaction is not eligible for a dispute. The 60-day dispute window expired on 2026-09-12 (check performed as of 2026-09-15), so eligible=false (other checks passed).\n\nWhat happens next\n- I cannot open a dispute for TX-0402. You can:\n  - Contact TechMart Online directly to request a refund (many merchants can reverse duplicate charges if you supply the two receipts).\n  - Ask me to send you an account statement covering July 2026 to support your request to the merchant — tell me the email to send it to (statements go only to the email registered on the account).\n  - If you want a human agent to review this further, say so and I will escalate.\n\nHow would you like to proceed?",
+    "tools": [
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 2,
+    "cache_read": [
+     1408,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 4
+   }
+  ]
+ }
+]

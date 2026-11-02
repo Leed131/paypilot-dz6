@@ -1,0 +1,48 @@
+[
+ {
+  "scenario": "S3B",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 2,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "max_tool_calls",
+      "ok": true,
+      "detail": "2 tool calls ['get_account', 'check_dispute_eligibility'], max 2"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "What I did\n- Looked up your account and the transaction you asked about.\n- Checked dispute eligibility for TX-0402 (TechMart Online).\n\nWhat I found\n- Transaction: TX-0402 — TechMart Online — 240.00 EUR — dated 2026-07-14 — on account ACC-1005.\n- Eligibility check result: not eligible to open a dispute for reason_code = duplicate_charge.\n  - Reason: the 60-day dispute window expired on 2026-09-12.\n  - As of check: 2026-09-15.\n  - All other checks passed (status, compliance).\n\nWhat happens next\n- I cannot open the dispute for TX-0402 because the eligibility window has closed.\n- Options I can do for you now:\n  - I can escalate this to a human agent for further review (tell me if you want that).\n  - I can send an account statement for the relevant period to the email address registered on the account to help you pursue this with TechMart Online — tell me which period you want (default is last_month) and confirm you want me to send it.\n  - You can contact TechMart Online directly; I can provide the settled transaction details above to support that contact.\n\nTell me which option you prefer and I’ll proceed.",
+    "tools": [
+     "get_account",
+     "check_dispute_eligibility"
+    ],
+    "model_calls": 3,
+    "cache_read": [
+     0,
+     1536,
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 2,
+    "mock_seen": 5
+   }
+  ]
+ }
+]

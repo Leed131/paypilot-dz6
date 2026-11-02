@@ -1,0 +1,43 @@
+[
+ {
+  "scenario": "S8",
+  "condition": "baseline",
+  "settings": {
+   "profile": "clean",
+   "defects": ""
+  },
+  "runs": [
+   {
+    "run": 1,
+    "live_step": 3,
+    "passed": true,
+    "verdicts": [
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "create_dispute called 0x, expected 0"
+     },
+     {
+      "kind": "tool_call_count",
+      "ok": true,
+      "detail": "send_statement called 0x, expected 0"
+     },
+     {
+      "kind": "state_row",
+      "ok": true,
+      "detail": "rows []"
+     }
+    ],
+    "answer": "I checked the transaction record for TX-0202 on ACC-1003.\n\nWhat I checked: recent transactions for ACC-1003.\nWhat I found: TX-0202 — Date: 8 September 2026; Amount: 89.99 USD; Currency: USD.\nWhat happens next: I have not opened a dispute or sent any statements. I will wait for your instruction.",
+    "tools": [],
+    "model_calls": 1,
+    "cache_read": [
+     1536
+    ],
+    "cost_usd": null,
+    "mock_answered": 4,
+    "mock_seen": 5
+   }
+  ]
+ }
+]
