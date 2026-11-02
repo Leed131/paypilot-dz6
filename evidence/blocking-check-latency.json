@@ -1,0 +1,146 @@
+{
+  "scope": "Лише живі кроки фінальних clean baseline daily та all-baseline; дефектні умови, мок-кроки й попередні запуски виключено. p50 = медіана збережених duration_ms, точність джерела 0.1 мс.",
+  "limitations": "tool.get_account охоплює читання рахунку на межі інструмента, не ізольований SQL-запит. Повні нові бар’єри не реалізовано і не виміряно; send_statement не викликався. Це повторне використання вимірів фінального прогону, не новий benchmark.",
+  "source_sha256": {
+    "reports/hw6-v3/final-verification-timeout60/daily/traces.json": "b46d5458acd9199260a73f455f88066531be3355454007d8dd1b60b0e374cf14",
+    "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json": "49ca475ab2e1d63fe83be29eab4aed8accd705be7b837de08fdb0eeff46a362a"
+  },
+  "summary": {
+    "tool.check_dispute_eligibility": {
+      "n": 10,
+      "p50_ms": 1.45
+    },
+    "tool.get_account": {
+      "n": 4,
+      "p50_ms": 1.15
+    }
+  },
+  "samples": [
+    {
+      "stage": "daily",
+      "scenario": "S1",
+      "request_id": "17ad8d7b8f614539",
+      "span_id": "d7d60af6695d4351",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 0.7,
+      "source": "reports/hw6-v3/final-verification-timeout60/daily/traces.json"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S3",
+      "request_id": "5bcaf73071724b6a",
+      "span_id": "ddcb1b3811eb407d",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 0.6,
+      "source": "reports/hw6-v3/final-verification-timeout60/daily/traces.json"
+    },
+    {
+      "stage": "daily",
+      "scenario": "S6",
+      "request_id": "12cb8d4fe67d4209",
+      "span_id": "810dcc913a964209",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.4,
+      "source": "reports/hw6-v3/final-verification-timeout60/daily/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S1",
+      "request_id": "a0d8aa44b7a14ca9",
+      "span_id": "8bb53e7aa2af4192",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.4,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S1O",
+      "request_id": "06f7e7688bc3448d",
+      "span_id": "61baa253dfc448db",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.5,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S2",
+      "request_id": "458a15acf1804ea0",
+      "span_id": "9730591029404edf",
+      "name": "tool.get_account",
+      "duration_ms": 1.2,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S2",
+      "request_id": "458a15acf1804ea0",
+      "span_id": "519eef26425f4ecc",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.6,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S3",
+      "request_id": "eb72dd2cea474633",
+      "span_id": "53c031dd77854f05",
+      "name": "tool.get_account",
+      "duration_ms": 1.1,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S3",
+      "request_id": "eb72dd2cea474633",
+      "span_id": "215bfcefbe6140af",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.5,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S3B",
+      "request_id": "cf2a5c27a4d4438e",
+      "span_id": "f6c1d3bbe49845b7",
+      "name": "tool.get_account",
+      "duration_ms": 1.3,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S3B",
+      "request_id": "cf2a5c27a4d4438e",
+      "span_id": "fbe31199bcd0474b",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.5,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S4",
+      "request_id": "c4a243de694a47e5",
+      "span_id": "1176097de9e147de",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 1.6,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S6",
+      "request_id": "d713ac45737c41f5",
+      "span_id": "9e568b6e825d410f",
+      "name": "tool.check_dispute_eligibility",
+      "duration_ms": 0.8,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    },
+    {
+      "stage": "all-baseline",
+      "scenario": "S7",
+      "request_id": "72fb2a7ec1574194",
+      "span_id": "d10a393fb3384acd",
+      "name": "tool.get_account",
+      "duration_ms": 0.4,
+      "source": "reports/hw6-v3/final-verification-timeout60/all-baseline/traces.json"
+    }
+  ]
+}
